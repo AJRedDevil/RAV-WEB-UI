@@ -1,0 +1,75 @@
+<div class="claim-inner">
+	<!-- TODO: active only for particular row? -->
+	<div class="title light-yellow">
+		<i class="dropdown icon"></i>
+	</div>
+	<!-- TODO: active class only on the latest accordian?? -->
+	<div class="content">
+		<div class="card-body table-responsive">
+			<div class="claim-wrap">
+				<dxcodes [claimId]="inputClaim.claimId">
+				</dxcodes>
+			</div>
+			<div class="cpt-wrap">
+				<cptcodes [claimId]="inputClaim.claimId">
+				</cptcodes>
+        	</div>
+		</div>
+	</div>
+	<div class="claim-title-inner">
+		<h2>Claim ID: {{ inputClaim.claimId }} |
+			<small> DOS:
+            <span
+                id="dos-date"
+                data-type="date"
+                data-viewformat="dd/mm/yyyy"
+                data-pk="1">
+                {{ inputClaim.dateOfService }}
+            </span>
+             | Coding Date: {{ inputClaim.codingDate }}
+        </small>
+		</h2>
+	</div>
+	<div class="add-section">
+		<div class="status-wrap">
+			<div class="ui checkbox">
+				<input
+                    type="checkbox"
+                    name="example"
+                    tabindex="0"
+                    class="hidden"
+                    (change)="registerClaimReview()"
+                    [checked]="inputClaim.reviewed"/>
+				<label>Reviewed</label>
+			</div>
+		</div>
+		<div class="edit-row comment">
+			<button class="btn btn-info ui button">
+                <i class="fa fa-comment"></i>
+            </button>
+			<div class="ui fluid popup top left transition hidden">
+				<div class="ui column divided grid">
+					<div class="column">
+						<div class="ui form">
+							<form [formGroup]="claimCommentForm" (ngSubmit)="claimComment()">
+								<div class="fields">
+									<div class="field">
+										<label>Comment</label>
+										<textarea
+                                            rows="1"
+                                            [(ngModel)]="comment"
+                                            formControlName="comment">
+                                        </textarea>
+									</div>
+									<div class="field">
+										<button class="ui green button" type="submit">Submit</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

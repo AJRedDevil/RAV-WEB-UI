@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <base href="/">
+    <title>RAV</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 1. Load css -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" />
+    <link rel="stylesheet" href="assets/vendor/css/semantic.min.css">
+    <link rel="stylesheet" href="assets/stylesheets/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/stylesheets/fonts.css">
+    <link rel="stylesheet" href="assets/stylesheets/normalize.css">
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
+
+    <!-- 2. Load libraries -->
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <!-- 3. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
+</head>
+<!-- 4. Display the application -->
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <my-app>Loading...</my-app>
+
+    <!-- 5.Load Scripts -->
+    <script src="assets/vendor/js/jquery-1.12.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+    <script src="assets/vendor/js/semantic.min.js"></script>
+    <script src="assets/vendor/js/sticky-kit.js"></script>
+</body>
+
+</html>

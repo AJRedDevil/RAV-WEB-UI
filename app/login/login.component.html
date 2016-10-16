@@ -1,0 +1,28 @@
+<div class="login-wrap">
+	<div class="container">
+		<form class="login">
+
+			<fieldset>
+
+				<legend class="legend">Welcome</legend>
+
+				<div class="input">
+					<input [(ngModel)]="user.email" name="email" id="email" type="email" class="validate" placeholder="Email">
+					<span><i class="fa fa-envelope-o"></i></span>
+				</div>
+
+				<div class="input">
+					<input [(ngModel)]="user.password" name="password" id="password" type="password" placeholder="Password" class="validate"
+						required>
+					<span><i class="fa fa-lock"></i></span>
+				</div>
+
+				<span class="error">{{errorMsg}}</span>
+
+				<button (click)="login()" class="submit" type="submit" name="action">Login</button>
+
+			</fieldset>
+
+		</form>
+	</div>
+</div>

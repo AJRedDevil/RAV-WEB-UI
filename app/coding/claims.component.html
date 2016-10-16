@@ -1,0 +1,72 @@
+<div class="table-chart-container">
+    <div class="table-card-wrapper">
+        <div class="card claim-wrapper">
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h2>Claims/Encounters</h2>
+                <div class="add-row">
+                    <div class="add">
+                        <button class="btn btn-info ui button">
+                            Add Claims
+                        </button>
+                        <div class="ui fluid popup top left transition hidden">
+                            <div class="ui column divided grid">
+                                <div class="column">
+                                    <div class="ui form">
+                                        <form [formGroup]="addClaimForm" (ngSubmit)="addClaim()">
+                                            <div class="fields">
+                                                <div class="field">
+                                                    <label>DOS</label>
+                                                    <input
+                                                        type="text"
+                                                        placeholder="dd/mm/yyyy"
+                                                        formControlName="dos">
+                                                </div>
+                                                <div class="field">
+                                                    <label>Provider</label>
+                                                    <input
+                                                        type="text"
+                                                        placeholder="Provider"
+                                                        formControlName="provider">
+                                                </div>
+                                                <div class="field">
+                                                    <button class="ui green button" type="submit">Submit</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="ui styled accordion">
+                    <claim
+                        *ngFor="let claim of claims"
+                        [inputClaim]="claim">
+                    </claim>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="completion-section clearfix">
+        <div>
+            <!-- TODO: write event emitter for Coding Complete -->
+            <button class="btn btn-success" (click)="codingComplete()">
+              <span class="icon-checkmark"></span>Coding complete
+            </button>
+            <!-- TODO: write event emitter for Save for later -->
+            <button class="btn btn-warn" (click)="saveForLater()">
+              <span class="icon-later"></span>Save for later
+            </button>
+        </div>
+        <div>
+            <button class="btn btn-info" (click)="goToNext()">Next
+            <span class="icon-next"></span>
+          </button>
+        </div>
+    </div>
+</div>
