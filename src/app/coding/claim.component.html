@@ -1,0 +1,114 @@
+<div class="claim-inner">
+	<!-- TODO: active only for particular row? -->
+	<div class="title" [class.light-yellow]="!inputClaim.reviewed" [class.light-green]="inputClaim.reviewed">
+		<i
+			class="dropdown icon"
+			(click)="activeInactive()">
+		</i>
+	</div>
+	<!-- TODO: active class only on the latest accordian?? -->
+	<div class="content">
+		<div class="card-body">
+			<div class="claim-wrap table-responsive">
+				<dxcodes [claimId]="inputClaim.claimId">
+				</dxcodes>
+			</div>
+			<div class="cpt-wrap table-responsive">
+				<cptcodes [claimId]="inputClaim.claimId">
+				</cptcodes>
+        	</div>
+		</div>
+	</div>
+	<div class="claim-title-inner">
+		<h2>Claim ID: {{ inputClaim.claimId }} |
+			<small> DOS:
+            <span
+                id="dos-date"
+                data-type="date"
+                data-viewformat="dd/mm/yyyy"
+                data-pk="1"
+				class="editable editable-input">
+                {{ inputClaim.dateOfService }}
+            </span>
+			<div class="ui fluid popup top left transition hidden">
+				<div class="ui column divided grid">
+					<div class="column">
+						<div class="ui form">
+							<form [formGroup]="dosForm" (ngSubmit)="updateDOS()">
+								<div class="fields">
+									<div
+										class="field"
+										[class.form-error]="!dosForm.controls.dos.valid">
+										<input
+											type="date"
+											placeholder="dd/mm/yyyy"
+											formControlName="dos">
+										<div
+											class="error"
+											*ngIf="!dosForm.controls.dos.valid">
+											Required (Must be in format mm-dd-yyyy)
+										</div>
+									</div>
+									<div class="field">
+										<button class="ui icon button" id="checked-icon" type="submit">
+											<i class="checked calendar icon"></i>
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+             | Coding Date: {{ inputClaim.codingDate }}
+			<span *ngIf="inputClaim.insertType == 'New'"  class="ui red header">New</span>
+			<span *ngIf="inputClaim.insertType == 'Changed'"  class="ui green header">Changed</span>
+        	</small>
+		</h2>
+	</div>
+	<div class="add-section">
+		<div class="status-wrap">
+			<div class="ui checkbox">
+				<input
+                    type="checkbox"
+                    name="example"
+                    tabindex="0"
+                    class="hidden"
+                    (change)="registerClaimReview($event)"
+                    [checked]="inputClaim.reviewed"/>
+				<label>Reviewed</label>
+			</div>
+		</div>
+		<div class="edit-row comment">
+			<button
+				class="btn ui button"
+				[class.is-active]='inputClaim.comment!=""'
+				(click)="resetForm()">
+                <i class="fa fa-comment"></i>
+            </button>
+			<div class="ui fluid popup top left transition hidden">
+				<div class="ui column divided grid">
+					<div class="column">
+						<div class="ui form">
+							<form [formGroup]="claimCommentForm" (ngSubmit)="claimComment()">
+								<div class="fields">
+									<div class="field">
+										<label>Comment</label>
+										<textarea
+                                            rows="1"
+                                            [(ngModel)]="comment"
+                                            formControlName="comment">
+                                        </textarea>
+									</div>
+									<div class="field">
+										<button class="ui green button" type="submit">Submit</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

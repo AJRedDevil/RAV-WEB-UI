@@ -1,0 +1,141 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>DX Code</th>
+            <th>Description</th>
+            <th>HCC</th>
+            <th>Provider Search</th>
+            <th>Invalid</th>
+            <th>Comment</th>
+            <th>Reason</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let dxcode of dxcodes; let sn = index">
+        <!-- https://github.com/angular/angular/issues/5967 -->
+        <tr>
+            <td>
+                {{ sn + 1 }}
+                <span *ngIf="dxcode.insertType == 'New'"  class="ui red header">N</span>
+            </td>
+            <td>{{ dxcode.dxCode.dxCode }}</td>
+            <td>{{ dxcode.dxCode.dxDesc }}</td>
+            <td>{{ dxcode.dxCode.hcc }}</td>
+            <td>{{ dxcode.provider.fullName }}</td>
+            <td>
+                <div class="ui checkbox">
+                    <input
+                        type="checkbox"
+                        name="public"
+                        [checked]="dxcode.invalid"
+                        (change)="registerInvalid(dxcode)">
+                    <label></label>
+                </div>
+            </td>
+            <td class="text-left">
+                <button
+                    type="button"
+                    class="icon show-message"
+                    [class.is-selected]='dxcode.comment!=""'
+                    title="Comment"
+                    (click)="clicked(dxcode, sn)">
+                <span class="icon-remark"></span>
+              </button>
+            </td>
+            <td class="text-left">
+                <button
+                    type="button"
+                    class="icon show-message" [class.is-selected]="dxcode.reasonId!=0">
+                    <sm-dropdown class="floating labeled" [class.is-selected]="dxcode.reasonId!=0">
+                        <div class="icon search input">
+                            <input type="text" placeholder="Search tags...">
+                        </div>
+                        <div class="divider"></div>
+                        <div class="header">
+                            <i class="fa fa-tag"></i> Standard Messages
+                        </div>
+                        <div class="scrolling menu">
+                            <div
+                                class="item"
+                                *ngFor="let reason of reasons; let reasonid = index"
+                                [class.selected]="reason.id == dxcode.reasonId"
+                                [class.active]="reason.id == dxcode.reasondId"
+                                (click)="setReason($event, reasonid, dxcode)">
+                                <div class="ui grey empty circular label" *ngIf="reason.id == dxcode.reasonId"></div>
+                                {{ reason.statement }}
+                            </div>
+                        </div>
+                    </sm-dropdown>
+                </button>
+            </td>
+        </tr>
+        <tr class="inline-message" [ngClass]="dxcodeCss[sn].commentClass">
+            <td colspan="8">
+                <input
+                    type="text"
+                    placeholder="Type your message"
+                    (keyup)="onKey($event, dxcode, sn)"
+                    [(ngModel)]="dxcode.comment">
+                <input
+                    class="ui green button"
+                    type="submit"
+                    value="Enter"
+                    (click)="sendComment($event, dxcode, sn)">
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="add-claim-section">
+    <div class="ui form">
+        <form [formGroup]="addDxCodeForm" (ngSubmit)="addDxCode()">
+            <div class="fields">
+                <div
+                    class="field"
+                    [class.form-error]="addDxCodeForm.controls.dxcode.touched && _selectedDxId < 0"
+                    >
+                    <div class="ui search dxcode" [id]="claimId">
+                        <input
+                            class="prompt"
+                            type="text"
+                            placeholder="Enter DX-CODE"
+                            (keyup)="searchDxCodeDesc($event)"
+                            formControlName="dxcode">
+                        <div
+                            class="error"
+                            *ngIf="addDxCodeForm.controls.dxcode.touched && _selectedDxId < 0">
+                            Required (Select correct dxcode)
+                        </div>
+                        <div class="results"></div>
+                    </div>
+                </div>
+                <div
+                    class="field"
+                    [class.form-error]="addDxCodeForm.controls.description.touched && _selectedDxId < 0">
+                    <div class="ui search dxdescription" [id]="claimId">
+                        <input
+                            class="prompt"
+                            type="text"
+                            placeholder="Enter description"
+                            (keyup)="searchDxCodeDesc($event)"
+                            formControlName="description">
+                        <div
+                            class="error"
+                            *ngIf="addDxCodeForm.controls.description.touched && _selectedDxId < 0">
+                            Required (Select correct description)
+                        </div>
+                        <div class="results"></div>
+                    </div>
+                </div>
+                <div class="field">
+                    <input
+                        type="text"
+                        placeholder="Enter comment"
+                        formControlName="comment">
+                </div>
+                <div class="field">
+                    <button class="ui green button" type="submit">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

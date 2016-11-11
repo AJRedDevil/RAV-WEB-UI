@@ -1,0 +1,1853 @@
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+html {
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    line-height: 10px;
+    color: #5E5E5E;
+    background-color: #f4f4f4;
+}
+
+*, a, button, i, input {
+    -webkit-font-smoothing: antialiased;
+}
+
+*, :active, :focus, :hover {
+    outline: 0 !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+[role=button], a, area, button, input, label, select, summary, textarea {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
+button, input, select, textarea {
+    margin: 0;
+    line-height: inherit;
+    border-radius: 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    text-decoration: none;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #5bc0de;
+}
+
+.btn {
+    font-weight: 500;
+    outline: 0 !important;
+    border-width: 0;
+    padding: -0.4375rem 1rem;
+}
+
+.btn:focus, .btn:hover {
+    text-decoration: none;
+}
+
+.btn-info:hover {
+    color: #fff;
+    background-color: #31b0d5;
+    border-color: #2aabd2;
+}
+
+.btn.btn-success:focus,
+.btn.btn-success:hover {
+    color: rgba(255, 255, 255, .87) !important;
+    background-color: #6cc788;
+}
+
+.btn-success {
+    background-color: #6cc788;
+    border-color: #6cc788;
+    color: #fff;
+}
+
+.btn-warn {
+    color: #fff;
+    background-color: #fcc100;
+    border-color: #fcc100;
+}
+
+.btn.warn:hover,
+.btn.warn:focus {
+    color: rgba(255, 255, 255, .87) !important;
+    background-color: #fcc100;
+    border-color: #fcc100;
+}
+
+.btn-danger.ui.button {
+    color: #fff;
+    background-color: #DB2828;
+    border-color: #DB2828;
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    vertical-align: middle;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+}
+
+.btn-danger.ui.button .fa {
+    margin-right: 5px;
+}
+
+.btn.warn:hover,
+.btn.warn:focus {
+    color: rgba(255, 255, 255, .87) !important;
+    background-color: #d01919;
+    border-color: #d01919;
+}
+
+.btn:not([disabled]).active,
+.btn:not([disabled]):focus,
+.btn:not([disabled]):hover {
+    box-shadow: inset 0 -10rem 0 rgba(158, 158, 158, .2);
+}
+
+.coding {
+    width: 60%;
+    display: inline-block;
+    float: right;
+    margin-top: 20px;
+    
+}
+
+.chart-image {
+    width: 40%;
+    display: inline-block;
+    margin-top: 20px;
+    float: left;
+}
+
+.chart-image h2 {
+    margin: 0;
+    background: #0cc2aa;
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 18px;
+}
+
+.chart-image div {
+    height: 100%;
+}
+
+.chart-image .resize {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 15px;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    color: #fff;
+}
+
+.bill-img {
+    padding: 0px 0 10px;
+}
+
+.bill-img img {
+    max-width: 100%;
+    width: 100%;
+}
+
+.main-header {
+    width: 100%;
+    height: 100px;
+    color: white;
+    background: #0cc2aa;
+    line-height: 100px;
+    backface-visibility: hidden;
+}
+
+.heads-up {
+    transform: translateY(-6rem);
+    transform: translate3d(0, -6rem, 0);
+}
+
+.main-header h1 {
+    float: left;
+    font-size: 18px;
+    margin-top: 40px;
+    text-transform: uppercase;
+}
+
+.main-header .main-container {
+    overflow: visible;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-header .ui.dropdown .menu > .item {
+    font-size: 14px;
+}
+
+.main-header nav {
+    font-size: 16px;
+}
+
+.main-header nav .ui.inline.dropdown .menu {
+    right: 0;
+    top: 70px;
+}
+
+.main-header nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+.main-header nav li {
+    display: inline-block;
+    padding: 0 30px;
+    border-left: 1px solid #0db6a0;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.table-chart-container,
+.profile-member-block,
+.cannot-review-section{
+    margin: 10px 0;
+    padding: 0 0 0 20px;
+}
+
+.profile-member-block {
+    margin-top: 0;
+    clear: both;
+}
+
+.table-chart-container {
+    padding-bottom: 30px;
+}
+
+.member-title {
+    font-weight: 100;
+    margin: 0px 0 7px;
+    font-size: 22px;
+    line-height: 22px;
+}
+
+.profile-member-block [class^="icon-"],
+.profile-member-block [class*=" icon-"] {
+    font-size: 14px;
+    color: rgba(131, 131, 131, 0.4);
+}
+
+.profile-member-block .chart-wrapper [class^="icon-"],
+.profile-member-block .chart-wrapper [class*=" icon-"] {
+    margin-right: 0;
+    font-size: 12px;
+    color: #5E5E5E;
+    margin-top: 10px;
+    display: block;
+}
+
+.dob {
+    font-size: 14px;
+    margin: 0;
+    /*color: rgba(99, 99, 99, 0.5);*/
+}
+
+.provider-title {
+    margin: 5px 0 0;
+}
+
+.profile-member-block .list-btn [class^="icon-"],
+.profile-member-block .list-btn [class*=" icon-"] {
+    color: #fff;
+}
+
+.profile-member-block .card {
+    padding: 15px 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.list-section {
+    position: absolute;
+    bottom: 20px;
+    right: 15px;
+}
+
+.chart-wrapper h3 {
+    margin: 5px 0 8px;
+    display: inline-block;
+}
+
+.chart-wrapper img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.table-chart-container .table-card-wrapper {
+    box-shadow: none;
+}
+
+.table-chart-container .table-card-wrapper .card {
+    box-shadow: 0px 1px 1px 1px #b1b1b1;
+}
+
+.table-card-wrapper {
+    box-shadow: 0px 1px 1px 1px #b1b1b1;
+}
+
+/* PDF Object */
+.pdfobject-container {
+    height: 100%;
+    padding-bottom: 0;
+}
+
+.card-body input[type="text"] {
+    display: block;
+    padding-left: 7px;
+    font-size: 12px;
+    width: 100px;
+    height: 28px;
+    border: 1px solid #aaaaaa;
+    border-radius: 4px;
+}
+
+.fullscreen .card-body .inline-message input[type="text"] {
+    font-size: 14px;
+    width: 90%;
+    height: 32px;
+}
+
+.inline-message {
+    display: none;
+}
+
+.inline-message.is-visible {
+    display: table-row;
+}
+
+.card-body .inline-message input[type="text"]{
+    width: 85%;
+    display: inline-block;
+}
+
+.card-body .inline-message .ui.green.button {
+    padding: 3px 10px;
+    margin-left: 10px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.fullscreen .card-body .inline-message .ui.green.button {
+    padding: 3px 15px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.inline-message td {
+    background: #d3d3d3;
+}
+
+.table-card-wrapper .completion-section {
+    overflow: hidden;
+}
+
+.completion-section{
+    margin-top: 20px;
+}
+
+.completion-section > div:nth-child(1) {
+    float: left;
+    display: inline-block;
+    position: relative;
+}
+
+.completion-section > div:nth-child(1) button {
+    margin-right: 10px;
+}
+
+.completion-section > div:nth-child(1) button:last-child {
+    margin-right: 0;
+}
+
+.completion-section > div:nth-child(2) {
+    float: right;
+    display: inline-block;
+}
+
+.completion-section .btn {
+    font-size: 14px;
+}
+
+.completion-section .btn-danger{
+    display: none;
+}
+
+.completion-section .ui.bottom.right.popup {
+    right: -185px !important;
+    margin-bottom: 20px;
+}
+
+.completion-section .ui.bottom.right.popup:before {
+    right: 0 !important;
+    left: 0 !important;
+    margin: 0 auto;
+    top: -5px !important;
+}
+
+.standard-msg .ui.button.pointing {
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    margin: 0;
+    padding: 9px 11px;
+    background-color: #f4f4f4;
+}
+
+.standard-msg .ui.dropdown.top .menu{
+    left: auto;
+    right: -110px;
+}
+
+.ui.form .fields .field .standard-msg .ui.input.search {
+    width: 91%;
+}
+
+.standard-msg .ui.dropdown .menu>.header {
+    margin: 10px 0;
+    font-size: 12px;
+}
+
+.standard-msg .ui.bottom.pointing.dropdown>.menu {
+    left: -117px;
+}
+
+.standard-msg .ui.button.pointing .fa {
+    color: #0cc2aa;
+}
+
+.standard-msg .ui.button.pointing .search.input .fa {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+
+.completion-section .ui.form .fields .field:first-child {
+    width: 360px;
+}
+
+.completion-section .ui.form .fields .field:first-child input {
+    padding: 8px;
+    font-size: 14px;
+}
+
+.completion-section .ui.form .fields .field input.ui.button.green {
+    margin: 0;
+    padding: 8px 15px;
+}
+
+.card {
+    background: #fff;
+    margin-bottom: 30px;
+}
+
+.card-main {
+    background: #fff;
+    margin-bottom: 3px;
+    position: relative;
+    padding: 8px 20px;
+    line-height: 100%;
+}
+
+.card:last-child {
+    margin-bottom: 0;
+}
+
+.card, .card .card-header {
+    position: relative;
+}
+
+.card, .mini-charts-item {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .15);
+}
+
+.card .card-header {
+    /*cursor: all-scroll;*/
+    margin: 0;
+    background: #0cc2aa;
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 18px;
+}
+
+.card .card-header h2 {
+    margin: 0;
+    line-height: 100%;
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    display: inline-block;
+}
+
+.resize {
+    display: inline-block;
+    float: right;
+}
+
+.card .card-header .resize [class^="icon-"],
+.card .card-header .resize [class*=" icon-"] {
+    margin-right: 0;
+    margin-top: 7px;
+    display: block;
+}
+
+.card .card-header h2 small {
+    display: inline-block;
+    margin-top: 8px;
+    color: #AEAEAE;
+    line-height: 160%;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.table-responsive {
+    min-height: .01%;
+    border: 0;
+    max-height: 400px;
+    margin-top: 0px;
+    /*overflow-x: auto;*/
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+pre code, table {
+    background-color: transparent;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 0;
+}
+
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+    padding: 5px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-top: 1px solid #F5F5F5;
+}
+
+.card-container .table > thead > tr > th {
+    background-color: #fff;
+    vertical-align: middle;
+    font-weight: 500;
+    color: #333;
+    border-bottom: 0px solid #F5F5F5;
+    border-width: 1px;
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 12px;
+}
+
+.card-container .table > tbody > tr > td {
+    font-size: 12px;
+    color: rgba(51, 51, 51, 0.68);
+}
+
+.table > tbody > tr > td:first-child,
+.table > tbody > tr > th:first-child,
+.table > tfoot > tr > td:first-child,
+.table > tfoot > tr > th:first-child,
+.table > thead > tr > td:first-child,
+.table > thead > tr > th:first-child {
+    padding-left: 20px;
+}
+
+.table > caption + thead > tr:first-child > td,
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > td,
+.table > thead:first-child > tr:first-child > th {
+    border-top: 0;
+}
+
+.claim-wrap .table > thead:first-child > tr > th:nth-child(1),
+.cpt-wrap .table > thead:first-child > tr > th:nth-child(1){
+    width: 6%;
+}
+
+.claim-wrap .table > thead:first-child > tr > th:nth-child(2){
+    width: 10%;
+}
+
+.cpt-wrap .table > thead:first-child > tr > th:nth-child(2){
+    width: 11%;
+}
+
+.claim-wrap .table > thead:first-child > tr > th:nth-child(3),
+.cpt-wrap .table > thead:first-child > tr > th:nth-child(3) {
+    width: 25%;
+}
+
+.claim-wrap .table > thead:first-child > tr > th:nth-child(4) {
+    width: 10%;
+}
+
+.cpt-wrap .table > thead:first-child > tr > th:nth-child(4) {
+    width: 38%;
+}
+
+.claim-wrap .table > thead:first-child > tr > th:nth-child(5) {
+    width: 18%;
+}
+
+.cpt-wrap .table > tbody > tr > td:nth-child(4) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.add-row {
+    background-color: rgba(0, 0, 0, .035);
+    border-top: 1px solid rgba(120, 130, 140, .13);
+    padding: 5px 0 5px 30px;
+}
+
+.add-row .btn {
+    padding: 7px 10px 7px 10px;
+    font-size: 14px;
+}
+
+.add-row button.green,
+.edit-row button.green {
+    margin-top: 27px;
+    margin-right: 0;
+}
+
+.add-row .ui.bottom.right.popup{
+    width: 679px !important;
+}
+
+.edit-row .ui.bottom.right.popup {
+    width: 630px !important;
+}
+
+.coder-list-container {
+    max-width: 1200px;
+    margin: 30px auto 0;
+}
+
+button.icon {
+    background: #f4f4f4;
+    border: 0;
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+button.icon.is-selected{
+    background: #43bf80;
+}
+
+button.icon.is-selected [class^="icon-"],
+button.icon.is-selected [class*=" icon-"]{
+    color: #fff;
+}
+
+.is-selected div.floating.labeled.dropdown i.fa.fa-list{
+    color: #fff;
+}
+
+button.icon:last-child {
+    margin-right: 0;
+}
+
+button.icon .fa {
+    color: #0cc2aa;
+    font-size: 14px;
+}
+
+button.icon [class^="icon-"],
+button.icon [class*=" icon-"] {
+    margin-right: 0;
+    color: #0cc2aa;
+}
+
+.main-container {
+    max-width: 1220px;
+    padding: 0 20px;
+    margin: 0 auto;
+    display: flex;
+    height: 100%;
+}
+
+#chart-wrapper {
+    height: 100%;
+}
+
+#chart-wrapper > .card{
+    height: 100%;
+}
+
+.view .btn {
+    font-size: 12px;
+    padding: 7px 10px;
+}
+
+.list-btn a {
+    font-size: 14px;
+}
+
+.ui.styled.accordion {
+    width: 100%;
+    border-radius: 0;
+    border: none;
+}
+
+.card-container .title h2 {
+    font-size: 14px;
+    display: inline-block;
+    margin: 0;
+}
+
+.card-container .ui.styled.accordion .active.title {
+    background: #e3fffb;
+}
+
+.card-container .ui.styled.accordion .content {
+    padding: 0;
+}
+
+.cpt-header h2 {
+    font-size: 16px;
+    padding: 5px 7px 5px 25px;
+    border-bottom: 1px solid #e4e4e4;
+    border-top: 1px solid #e4e4e4;
+    background: #eaeaea;
+}
+
+.add-section .ui.toggle.checkbox {
+    float: left;
+    margin-top: 4px;
+}
+
+.claim-wrap .table > tbody > tr > td:nth-child(3){
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.claim-wrap .ui.toggle.checkbox label:after,
+.add-section .ui.toggle.checkbox label:after,
+.cpt-wrap .ui.toggle.checkbox label:after {
+    width: 20px;
+    height: 20px;
+}
+
+.claim-wrap .ui.toggle.checkbox input,
+.add-section .ui.toggle.checkbox input,
+.cpt-wrap .ui.toggle.checkbox input {
+    width: 40px;
+    height: 20px;
+}
+
+.claim-wrap .ui.toggle.checkbox label,
+.add-section .ui.toggle.checkbox label,
+.cpt-wrap .ui.toggle.checkbox label {
+    padding-left: 50px;
+}
+
+.claim-wrap .ui.toggle.checkbox label:before,
+.add-section .ui.toggle.checkbox label:before,
+.cpt-wrap .ui.toggle.checkbox label:before {
+    background: #e74c3c !important;
+    width: 40px;
+    height: 20px;
+}
+
+.claim-wrap .ui.toggle.checkbox input:checked ~ label:before,
+.add-section .ui.toggle.checkbox input:checked ~ label:before,
+.cpt-wrap .ui.toggle.checkbox input:checked ~ label:before {
+    background-color: #2ecc71 !important;
+}
+
+.claim-wrap .ui.toggle.checkbox input:checked ~ label:after,
+.add-section .ui.toggle.checkbox input:checked ~ label:after,
+.cpt-wrap .ui.toggle.checkbox input:checked ~ label:after {
+    left: 25px;
+}
+
+.fullscreen .chart-image {
+    display: none;
+}
+
+.fullscreen .coding {
+    width: 100%;
+    float: none;
+}
+
+/*.fullscreen .profile-member-block {
+    margin: 20px;
+}*/
+
+.profile-member-block .card .member-title {
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.profile-member-block .provider-title {
+    margin-right: 0 !important;
+    font-size: 12px;
+}
+
+.profile-member-block .card > div:nth-child(1) > * {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: 12px;
+}
+
+.fullscreen .list-section {
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+}
+
+.fullscreen .table-chart-container .table-card-wrapper .ui.card.claim {
+    width: 100%;
+    border-radius: 0;
+    position: relative;
+    box-shadow: none;
+}
+
+.fullscreen .table-chart-container .table-card-wrapper .ui.card.claim > .content {
+    box-shadow: 0px 1px 1px 1px #b1b1b1 !important;
+    border-radius: 0 !important;
+}
+
+.fullscreen .table-chart-container .table-card-wrapper .ui.accordion.claim .title:not(.ui) {
+    padding: 0;
+}
+
+.fullscreen .ui.accordion.claim .add-row,
+.card-header .add-row {
+    position: absolute;
+    top: 4px;
+    right: -15px;
+    padding: 0;
+    border: none;
+}
+
+.fullscreen .ui.accordion.claim .add-row .btn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border-radius: 50%;
+    background: #5e5e5e;
+}
+
+.fullscreen .ui.accordion.claim .add-row .btn [class^="icon-"],
+.fullscreen .ui.accordion.claim .add-row .btn [class*=" icon-"] {
+    margin-right: 0;
+}
+
+.card-header .add-row {
+    right: 10px;
+    top: 6px;
+}
+
+.card-header .add-row > div {
+    float: left;
+}
+
+.card-header .add-row .comment {
+    margin-right: 5px;
+    display: none;
+}
+
+
+
+.card-header .add-row .btn {
+    background: #5e5e5e;
+    padding: 0;
+    color: #fff;
+    font-weight: normal;
+    margin-right: 0;
+    padding: 6px 10px;
+}
+
+.card-header .add-row .btn [class^="icon-"],
+.card-header .add-row .btn [class*=" icon-"] {
+    margin-right: 0;
+    font-size: 10px;
+}
+
+.fullscreen .table-card-wrapper .completion-section {
+    padding: 10px 30px;
+}
+
+.fullscreen .table-responsive {
+    max-height: 500px;
+}
+
+.add-section {
+    position: absolute;
+    top: 7px;
+    right: -10px;
+}
+
+.add-section .edit-row {
+    float: left;
+    display: inline-block;
+}
+
+.add-section .edit-row .ui.button.is-active{
+    position: relative;
+}
+
+.add-section .edit-row .ui.button.is-active:after{
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff5b5b;
+    top: -1px;
+    right: 0px;
+}
+
+.add-section .edit-row .ui.button:hover,
+.add-section .edit-row .ui.button:focus {
+    background-color: #5e5e5e;
+    color: #fff;
+}
+
+.add-section .btn {
+    background: #5e5e5e;
+    border-radius: 30px;
+    padding: 0 9px;
+    font-size: 14px;
+    margin-right: -5px;
+    color: #fff;
+    font-weight: normal;
+    width: 30px;
+    height: 30px;
+    margin-top: -3px;
+}
+
+.add-section .indicator-wrap {
+    float: left;
+}
+
+.add-section .indicator-wrap > label {
+    margin-top: 10px;
+    display: inline-block;
+    margin-right: 9px;
+}
+
+.add-section .indicator-wrap .ui.toggle.checkbox {
+    float: right;
+    margin-top: 4px;
+}
+
+.add-section .ui.button:hover
+.add-section .ui.button:focus {
+    background-color: #5e5e5e;
+    color: #fff;
+}
+
+.add-section .btn [class^="icon-"],
+.add-section .btn [class*=" icon-"] {
+    margin-right: 7px;
+    font-size: 10px;
+}
+
+.add-section .status-wrap {
+    float: left;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.status-wrap .ui.checkbox label {
+    font-size: 12px;
+    padding-right: 1.85714em;
+    padding-left: 0;
+}
+
+.status-wrap .ui.checkbox label:before,
+.status-wrap .ui.checkbox label:after {
+    right: 0;
+    left: auto;
+}
+
+.status-wrap .ui.dropdown .menu {
+    border-radius: 0;
+}
+
+.status-wrap .ui.dropdown .menu > .item {
+    font-size: 14px;
+    border-bottom: 1px solid #dedede;
+}
+
+.claim-inner {
+    position: relative;
+}
+
+.claim-wrapper {
+    display: none;
+}
+
+.light-yellow {
+    background: #fff5d6 !important;
+}
+
+.light-red {
+    background: #ffdede !important;
+}
+
+.light-green {
+    background: #e2ffeb !important;
+}
+
+.text-left .ui.labeled.icon.button {
+    padding: 5px 6px 5px !important;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #f4f4f4;
+    margin-right: 0;
+}
+
+.text-left .ui.labeled.icon.button.is-selected{
+    background: #43bf80;
+}
+
+.text-left .ui.labeled.icon.button.is-selected .fa-list{
+    color: #fff;
+}
+
+.text-left .ui.labeled.icon.button .fa {
+    color: #0cc2aa;
+    font-size: 14px;
+}
+
+.text-left .labeled.icon.button .fa.fa-search{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.text-left .ui.floating.dropdown .menu {
+    left: -480px;
+    width: 505px;
+    margin-bottom: 20px;
+}
+
+.text-left .ui.floating.dropdown .menu.is-visible {
+    display: block !important;
+}
+
+.text-left .ui.dropdown .menu>.input{
+    margin: 10px;
+}
+
+.text-left .dropdown .search> input{
+    margin: 10px;
+    width: 100%;
+}
+
+.text-left .ui.dropdown .menu>.header {
+    margin: 5px;
+    font-size: 12px;
+    text-transform: capitalize;
+    padding-left: 5px;
+}
+
+.text-left .ui.dropdown .menu>.divider {
+    margin: 0;
+}
+
+.text-left .ui.dropdown .scrolling.menu>.item.item.item {
+    font-size: 14px;
+}
+
+.ui.dropdown .menu>.item {
+    font-size: 14px;
+}
+
+.text-left .ui.dropdown>.visible.menu .scrolling.menu {
+    max-height: 150px;
+    overflow-x: auto;
+}
+
+.comment .ui.form .fields .field:first-child {
+    width: 580px;
+    font-size: 14px;
+}
+
+.add-claim-section {
+    padding: 8px 20px 8px 30px;
+    background: #f6f6f6;
+}
+
+.add-claim-section .ui.search>.results .result {
+    font-size: 14px;
+    padding: 10px 15px;
+}
+
+.add-claim-section .ui.search>.results .result .content {
+    padding: 0;
+}
+
+.add-claim-section .ui.search>.results .result .title {
+    height: auto;
+    padding: 0;
+    border: none;
+}
+
+.add-claim-section .ui.form .fields>.field:first-child {
+    width: 25%;
+}
+
+
+.add-claim-section .ui.form .fields:last-child .field:nth-child(2) {
+    width: 60%;
+}
+
+.add-claim-section .ui.form .fields:last-child .field:nth-child(3) {
+    width: 40%;
+}
+
+.cpt-wrap .add-claim-section .ui.form .fields>.field:first-child {
+    width: 40%;
+}
+
+.cpt-wrap .add-claim-section .ui.form .fields:last-child .field:nth-child(2) {
+    width: 50%;
+}
+
+.cpt-wrap .add-claim-section .ui.form .fields:last-child .field:nth-child(4) {
+    width: 40%;
+}
+
+.add-claim-section .ui.form input[type=text] {
+    font-size: 12px;
+}
+
+.add-claim-section .ui.button {
+    padding: 7px 10px;
+    font-size: 12px;
+    line-height: 14px;
+    margin-right: 0;
+}
+
+.not-review-wrap {
+    position: relative;
+}
+
+.not-review {
+    padding: 10px 0;
+    display: none;
+}
+
+.not-review-btn {
+    float: right;
+    clear: both;
+    margin-bottom: 5px;
+    background: #fff;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+.not-review .review-text,
+.not-review .text-left{
+    display: inline-block;
+}
+
+.not-review .review-text {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+
+.inline-message-review{
+    display: none;
+    background: #d3d3d3;
+    padding: 10px;
+}
+
+.inline-message-review.is-visible {
+    display: block;
+    clear: both;
+    width: 750px;
+    margin-left: 20px;
+}
+
+.inline-message-review input {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+
+.editable-buttons {
+    display: none;
+}
+
+.card-container .ui.styled.accordion .title {
+    height: 38px;
+    padding: 10px;
+}
+
+.card-container .ui.accordion .title .dropdown.icon {
+    margin-top: 3px;
+}
+
+.ui.form .review-select .ui.selection.dropdown {
+    padding: 2px 4px 0;
+    min-height: auto;
+    font-size: 12px;
+    margin-top: 5px;
+    color: #2b2b2b;
+    line-height: 16px;
+    width: 100%;
+}
+
+.review-select .ui.selection.dropdown > .dropdown.icon {
+    margin: -5px 0 0;
+    padding: 0;
+}
+
+.review-select .ui.dropdown .menu>.item {
+    font-size: 12px;
+}
+
+.review-select .ui.selection.dropdown .menu>.item {
+    padding: 5px !important;
+}
+
+.review-select .ui.dropdown>.text {
+    width: 175px;
+    padding-right: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.claim-title-inner {
+    position: absolute;
+    top: 10px;
+    left: 32px;
+}
+
+.ui.form .review-select select {
+    padding: 0;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.editable-input {
+    margin-top: -3px;
+}
+
+.standard-message .field strong {
+    font-size: 12px;
+    font-weight: normal;
+    display: block;
+}
+
+.editable-input input {
+    border: 1px solid #f8f8f8;
+    padding-left: 5px;
+}
+
+.claim-title-inner h2 {
+    font-size: 14px;
+    margin: 0;
+}
+
+.ui-datepicker .ui-datepicker-title {
+    color: #333;
+}
+
+/**
+ * Comment and Cannot Review Section
+ */
+
+.cannot-review-section .standard-message {
+    background: #fff;
+    box-shadow: 0px 1px 1px 1px #b1b1b1;
+    padding: 15px 10px;
+    position: relative;
+}
+
+.standard-message .ui.form .fields .field:last-child {
+    flex: 1;
+}
+
+.standard-message .ui.form{
+    height: 36px;
+}
+
+.standard-message .ui.form .fields{
+    height: 100%;
+}
+
+.standard-message .ui.form .fields input,
+.standard-message .ui.form .fields button
+{
+    height: 100%;
+    font-size: 14px;
+}
+
+.standard-message .ui.form .fields input {
+    width: 85%;
+}
+
+.standard-message .save-icon {
+    background: url("../images/save.png") no-repeat;
+    border: none;
+    text-indent: -9999px;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-left: 10px;
+    background-size: 36px;
+    width: 36px;
+}
+
+.standard-message .ui.form .fields .field small{
+    text-align: center;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.login-wrap {
+    height: 100%;
+    position: relative;
+}
+
+.login-wrap .login {
+  position: absolute;
+  top: 40%;
+  width: 400px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  background: #fff;
+  border-radius: 4px;
+}
+
+.login-wrap .error {
+    font-size: 14px;
+    font-style: italic;
+    display: block;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    color: red;
+}
+
+.login-wrap .legend {
+  position: relative;
+  width: 100%;
+  display: block;
+  background: #a2adab;
+  padding: 30px 20px;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+}
+.login-wrap .legend:after {
+  content: "";
+  background-image: url(http://simpleicon.com/wp-content/uploads/multy-user.png);
+  background-size: 100px 100px;
+  background-repeat: no-repeat;
+  background-position: 300px -15px;
+  opacity: 0.06;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+.login-wrap .input {
+  position: relative;
+  width: 90%;
+  margin: 25px auto;
+}
+.login-wrap .input span {
+      position: absolute;
+    display: block;
+    color: #d4d4d4;
+    left: 10px;
+    top: 50%;
+    font-size: 20px;
+    transform: translateY(-50%);
+}
+.login-wrap .input input {
+  width: 100%;
+  padding: 20px 5px 20px 45px;
+  display: block;
+  border: 1px solid #EDEDED;
+  transition: 0.2s ease-out;
+  color: #a1a1a1;
+  font-size: 14px;
+}
+.login-wrap .input input[type="password"] + span {
+    left: 16px;
+}
+
+.login-wrap .input input:focus {
+  padding: 20px 5px 20px 35px;
+  outline: 0;
+  border-color: #0cc2aa;
+}
+.login-wrap .submit {
+      font-size: 20px;
+    background: #0cc2aa;
+    outline: none;
+    border: 1px solid #0cc2aa;
+    max-width: 360px;
+    width: 100%;
+    display: block;
+    margin: 0 auto 20px;
+    padding: 20px;
+    color: #fff;
+}
+
+.login-wrap .submit:hover,
+.login-wrap .submit:focus {
+    background: rgba(12, 194, 170, 0.7);
+}
+
+.ui.form .field>label {
+    font-weight: normal;
+}
+
+
+/*.standard-message .ui.form .fields .ui.button.danger{
+    color: #fff;
+    background: #DB2828;
+}
+
+.standard-message .ui.form .fields .ui.button.danger:hover{
+    background: #f12525;
+}*/
+
+.standard-message .ui.form .fields .field:first-child {
+    width: 70%;
+}
+
+/*
+ * Chart
+*/
+.resize-icon:hover .icon-resize:before {
+    transition: all 0.2s ease-out;
+    font-size: 16px;
+}
+
+.chart-image.panel-fullscreen {
+    display: block;
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+    margin-top: 0;
+}
+
+/*
+ * Error
+*/
+.ui.form .form-error input[type=text] {
+    border-color: red;
+}
+
+.ui.form .form-error .error {
+    font-size: 12px;
+    color: red;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * Claim DOS
+*/
+#checked-icon {
+    margin: 8 0 0 8;
+}
+
+#checked-icon i {
+    margin: -8 0 0 -8;
+}
+
+.fullscreen .add-claim-section {
+    padding: 10px 20px 10px 30px;
+}
+
+/*
+ * Editable input
+*/
+.editable-input {
+    border-bottom: 1px dotted #6435c9;
+}
+
+.ui.column .column {
+    padding-bottom: 0;
+}
+
+/*
+ * Fullview css
+*/
+@media only screen and (min-width: 1600px) {
+   .main-container {
+       max-width: 1600px;
+       padding: 0 20px;
+   }
+
+    .profile-member-block .card {
+        padding: 30px 20px;
+    }
+
+    .profile-member-block .card .member-title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .dob {
+        font-size: 18px;
+    }
+
+    .cannot-review-section {
+        margin: 20px 0;
+    }
+
+    .profile-member-block [class^="icon-"], .profile-member-block [class*=" icon-"] {
+        font-size: 16px;
+    }
+
+    .profile-member-block .provider-title {
+        font-size: 16px;
+    }
+
+    .main-container.fullscreen .profile-member-block .card {
+        text-align: center;
+    }
+
+    .cannot-review-section .standard-message {
+        padding: 25px 20px;
+    }
+
+    .standard-message .ui.form {
+        height: 45px;
+    }
+
+    .standard-message .field strong {
+        font-size: 16px;
+    }
+
+    .standard-message .save-icon {
+        background-size: 44px;
+        width: 45px;
+    }
+
+    .ui.form .review-select {
+        height: 30px;
+    }
+
+    .ui.form .review-select .ui.selection.dropdown {
+        padding: 2px 10px 0;
+        font-size: 16px;
+        line-height: 24px;
+        height: 100%;
+        margin-top: 10px;
+    }
+
+    .standard-message .ui.form .fields input {
+        font-size: 16px;
+    }
+
+    .card .card-header {
+        padding: 20px;
+    }
+
+    .card-header .add-row {
+        right: 15px;
+        top: 12px;
+    }
+
+
+    .card .card-header h2 {
+        font-size: 24px;
+    }
+
+    .card-header .add-row {
+        right: 15px;
+        top: 12px;
+    }
+
+    .card-header .add-row .btn {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .card-container .ui.styled.accordion .title {
+        height: 50px;
+        padding: 20px;
+    }
+
+    .claim-title-inner h2 {
+        font-size: 18px;
+        margin: 0 0 0 10px;
+        line-height: 30px;
+    }
+
+    .card-container .ui.accordion .title .dropdown.icon {
+        margin-top: 0;
+    }
+
+    .add-section {
+        top: 13px;
+        right: 20px;
+    }
+
+    .add-section .status-wrap {
+        margin-right: 35px;
+        margin-top: 4px;
+    }
+
+    .status-wrap .ui.checkbox label {
+        font-size: 16px;
+    }
+
+    .table > thead > tr > th {
+        line-height: 24px;
+        font-size: 16px;
+    }
+
+    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+        padding: 10px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .add-claim-section {
+        padding: 15px 30px;
+    }
+
+    .add-claim-section .ui.form input[type=text] {
+        font-size: 14px;
+        height: 50px;
+    }
+
+    .add-claim-section .ui.form .fields .field:first-child {
+        width: 24%;
+    }
+
+    .add-claim-section .ui.form .fields:last-child .field:nth-child(2) {
+        width: 45%;
+    }
+
+    .add-claim-section .ui.form .ui.form .fields:last-child .field {
+        width: 20%;
+    }
+
+    .add-claim-section .ui.button {
+        padding: 13px 30px;
+        font-size: 16px;
+        line-height: 24px;
+        margin-right: 0;
+    }
+
+    .cpt-header h2 {
+        font-size: 20px;
+        padding: 20px 30px;
+    }
+
+    .completion-section .btn {
+        font-size: 18px;
+        padding: 15px 20px;
+    }
+
+    /*.fullscreen .table-chart-container {
+        padding:0 20px;
+    }*/
+
+    .card-body input[type="text"] {
+        font-size: 14px;
+        height: 36px;
+    }
+
+    .card-body .inline-message .ui.green.button {
+        padding: 5px 15px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+}

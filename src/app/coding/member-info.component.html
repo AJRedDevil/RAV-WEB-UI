@@ -1,0 +1,18 @@
+<div *ngIf="memberInfo" class="profile-member-block">
+  <div class="table-card-wrapper">
+    <div class="card">
+      <div>
+        <h2 class="member-title">{{ memberInfo.fullName }}
+          <span class="member-id">(ID-{{ memberInfo.id }})</span>
+        </h2>
+        <h4 class="dob">
+          <span class="icon-calendar"></span> Member DOB: {{ memberInfo.dateOfBirth }}
+        </h4>
+        <h4 class="provider-title">
+          <span class="icon-medical"></span>{{ memberInfo.provider.fullName }}
+          <span class="provider-id">(NPI-{{ memberInfo.provider.npi }})</span>
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>

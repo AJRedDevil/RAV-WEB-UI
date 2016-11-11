@@ -1,0 +1,54 @@
+<div class="cannot-review-section">
+    <div class="standard-message">
+        <div class="ui form">
+            <div class="fields">
+                <div class="field">
+                    <input
+                        type="text"
+                        placeholder="Enter comment"
+                        [(ngModel)]="chartComment">
+                    <button
+                        class="save-icon"
+                        type="submit"
+                        (click)="saveComment()">
+                        Save
+                    </button>
+                </div>
+                <div class="field">
+                    <span>
+                        <strong>Cannot Review</strong>
+                    </span>
+                    <div class="review-select">
+                        <select
+                            class="ui dropdown"
+                            (change)="myModalNormal.show({inverted: true}); holdCannotReview($event, {id: cr.value});"
+                            #cr>
+                            <option value="">Select one</option>
+                            <option
+                                *ngFor="let cannotReview of cannotReviews"
+                                [value]="cannotReview.id">
+                                {{ cannotReview.statement }}
+                            </option>
+                        </select>
+                    </div>
+                    <sm-modal
+                        title="Cannot Review"
+                        icon="warning sign"
+                        #myModalNormal>
+                        <modal-content>
+                            Are you sure that the chart and claims cannot be reviewed?
+                        </modal-content>
+                        <modal-actions>
+                            <div class="ui button primary">
+                                <div class="" (click)="registerCannotReview($event); myModalNormal.hide();">Yes</div>
+                            </div>
+                            <div class="ui button">
+                                <div class="" (click)="reloadCannotReview(); myModalNormal.hide()">Cancel</div>
+                            </div>
+                        </modal-actions>
+                    </sm-modal>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

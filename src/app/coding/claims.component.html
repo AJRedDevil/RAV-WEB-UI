@@ -1,0 +1,161 @@
+<div class="table-chart-container">
+    <div class="table-card-wrapper">
+        <div class="card claim-wrapper">
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h2>Claims/Encounters</h2>
+                <div class="add-row">
+                    <div class="add">
+                        <button
+                            class="btn btn-info ui button"
+                            (click)="resetForm()">
+                            Add Claims
+                        </button>
+                        <div class="ui fluid popup top left transition hidden">
+                            <div class="ui column divided grid">
+                                <div class="column">
+                                    <div class="ui form">
+                                        <form [formGroup]="addClaimForm" (ngSubmit)="addClaim()">
+                                            <div class="fields">
+                                                <div
+                                                    class="field"
+                                                    [class.form-error]="!addClaimForm.controls.dateOfService.valid">
+                                                    <label>DOS</label>
+                                                    <input
+                                                        type="date"
+                                                        placeholder="dd/mm/yyyy"
+                                                        formControlName="dateOfService">
+                                                    <div
+                                                        class="error"
+                                                        *ngIf="!addClaimForm.controls.dateOfService.valid">
+                                                        Required (Must be in format mm-dd-yyyy)
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="field"
+                                                    [class.form-error]="(addClaimForm.controls.provider.touched && _selectedProviderId < 0) || !addClaimForm.controls.provider.valid" >
+                                                    <label>Provider</label>
+                                                    <div class="ui search">
+                                                        <input
+                                                            class="prompt"
+                                                            type="text"
+                                                            placeholder="Provider"
+                                                            formControlName="provider"
+                                                            (keyUp)="checkProvider()">
+                                                        <div
+                                                            class="error"
+                                                            *ngIf="(addClaimForm.controls.provider.touched && _selectedProviderId < 0) || !addClaimForm.controls.provider.valid">
+                                                            Required (Select Correct Provider)
+                                                        </div>
+                                                        <div class="results"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="field">
+                                                    <button class="ui green button" type="submit">Submit</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="ui styled accordion">
+                    <claim
+                        *ngFor="let claim of claims"
+                        [inputClaim]="claim"
+                        (reloadClaims)="reloadClaims($event)">
+                    </claim>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="completion-section clearfix">
+        <div>
+            <!-- TODO: write event emitter for Coding Complete -->
+            <button class="btn btn-success" (click)="codingCompeleteModal.show({inverted: true});">
+              <span class="icon-checkmark"></span>Coding complete
+            </button>
+            <sm-modal
+                title="Coding Complete"
+                icon="checkmark"
+                #codingCompeleteModal>
+                <modal-content>
+                    Are you sure coding is complete?
+                </modal-content>
+                <modal-actions>
+                    <div class="ui positive basic button">
+                        <div class="" (click)="codingCompeleteModal.hide(); codingComplete($event);">YES</div>
+                    </div>
+                    <div class="ui negative basic button">
+                        <div class="" (click)="codingCompeleteModal.hide()">NO</div>
+                    </div>
+                </modal-actions>
+            </sm-modal>
+            <!-- TODO: write event emitter for Save for later -->
+            <button class="btn btn-warn" (click)="saveForLaterModal.show({inverted: true})">
+              <span class="icon-later"></span>Save for later
+            </button>
+            <sm-modal
+                title="Save For Later"
+                icon="save"
+                #saveForLaterModal>
+                <modal-content>
+                    Are you sure coding is complete?
+                </modal-content>
+                <modal-actions>
+                    <div class="ui positive basic button">
+                        <div class="" (click)="saveForLaterModal.hide(); saveForLater($event);">YES</div>
+                    </div>
+                    <div class="ui negative basic button">
+                        <div class="" (click)="saveForLaterModal.hide()">NO</div>
+                    </div>
+                </modal-actions>
+            </sm-modal>
+        </div>
+        <div>
+            <button class="btn btn-info" (click)="nextChartModal.show({inverted: true})">
+                Next
+                <span class="icon-next"></span>
+            </button>
+            <sm-modal
+                title="Next Chart"
+                icon="file"
+                #nextChartModal>
+                <modal-content>
+                    Please Confirm
+                </modal-content>
+                <modal-actions>
+                    <!--<div
+                        *ngIf="!isChartComplete"
+                        class="ui button green">
+                        <div
+                            class=""
+                            (click)="nextChartModal.hide(); codingComplete($event);">
+                            Coding Complete
+                        </div>
+                    </div>
+                    <div
+                        *ngIf="!isChartComplete"
+                        class="ui button yellow">
+                        <div
+                            class=""
+                            (click)="nextChartModal.hide(); saveForLater($event);">
+                            Save For Later
+                        </div>
+                    </div>-->
+                    <div class="ui positive basic button">
+                        <div class="" (click)="goToNext($event); nextChartModal.hide()">Yes</div>
+                    </div>
+                    <div class="ui negative basic button">
+                        <div class="" (click)="nextChartModal.hide()">Cancel</div>
+                    </div>
+                </modal-actions>
+            </sm-modal>
+        </div>
+    </div>
+</div>
