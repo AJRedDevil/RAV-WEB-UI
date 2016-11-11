@@ -26,7 +26,6 @@ export class MainComponent implements OnInit {
         (<any>$('.dropdown')).dropdown();
         (<any>$('.ui.accordion')).accordion();
         (<any>$('.ui.checkbox')).checkbox();
-        (<any>$("#chart-wrapper")).stick_in_parent();
         if (this.fullScreen && this.chartWindow == null) {
             this.fullScreenSingleton();
         }
