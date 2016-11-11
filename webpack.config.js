@@ -21,7 +21,7 @@ var webpackConfig = {
     new webpack.optimize.OccurenceOrderPlugin(true),
     new webpack.optimize.CommonsChunkPlugin({ name: ['main', 'vendor', 'polyfills'], minChunks: Infinity }),
     new webpack.EnvironmentPlugin([
-      'CONFIG_VAR', 'NODE_ENV'
+      'NODE_ENV'
       ]),
   ],
 
