@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent { 
     constructor() {
+        console.log(process.env.RAV_SERVICE);
         var RAV_SERVICE_URL = process.env.RAV_SERVICE || "http://localhost:8080/ravnepal";
         console.log(RAV_SERVICE_URL);
         localStorage.setItem('baseUrl', RAV_SERVICE_URL);
