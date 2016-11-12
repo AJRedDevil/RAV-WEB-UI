@@ -40,7 +40,7 @@ export class CPTCodesComponent{
         modifiers: ['', Validators.required],
         comment: ['']
       });
-      this.BASE_URL = localStorage.getItem('RAV_SERVICE_URL');
+      this.BASE_URL = localStorage.getItem('baseUrl');
     }
 
   private loadCptCodes() {

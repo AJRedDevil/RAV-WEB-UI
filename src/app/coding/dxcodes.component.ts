@@ -47,7 +47,7 @@ export class DXCodesComponent implements OnInit {
         description: ['', Validators.required],
         comment: ['']
       });
-      this.BASE_URL = localStorage.getItem('RAV_SERVICE_URL');
+      this.BASE_URL = localStorage.getItem('baseUrl');
   }
 
   private loadreasons() {
