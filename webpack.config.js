@@ -1,8 +1,4 @@
 var production = process.env.NODE_ENV == 'production';
-console.log("webpack");
-console.log(production);
-console.log(process.env.NODE_ENV);
-console.log(process.env.RAV_SERVICE);
 if (!production) { require('dotenv').config(); }
 
 var webpack = require('webpack');
@@ -25,8 +21,8 @@ var webpackConfig = {
     new webpack.optimize.OccurenceOrderPlugin(true),
     new webpack.optimize.CommonsChunkPlugin({ name: ['main', 'vendor', 'polyfills'], minChunks: Infinity }),
     new webpack.EnvironmentPlugin([
-      'NODE_ENV'
-      ]),
+      'NODE_ENV', 'RAV_SERVICE'
+      ])
   ],
 
   module: {
