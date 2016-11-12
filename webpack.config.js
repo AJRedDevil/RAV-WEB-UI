@@ -1,4 +1,8 @@
-var production = process.env.NODE_ENV == 'production'
+var production = process.env.NODE_ENV == 'production';
+console.log("webpack");
+console.log(production);
+console.log(process.env.NODE_ENV);
+console.log(process.env.RAV_SERVICE);
 if (!production) { require('dotenv').config(); }
 
 var webpack = require('webpack');
