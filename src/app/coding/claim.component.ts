@@ -45,11 +45,13 @@ export class ClaimComponent implements OnInit {
         (<any>$('.ui.button')).popup({
             hoverable  : false,
             position   : 'bottom right',
+            lastResort   : 'bottom right',
             on    : 'click'
         });
         (<any>$('span#dos-date')).popup({
             hoverable  : false,
             position   : 'bottom right',
+            lastResort   : 'bottom right',
             on    : 'click'
         });
     }

@@ -1640,11 +1640,11 @@ button.icon [class*=" icon-"] {
  * Claim DOS
 */
 #checked-icon {
-    margin: 8 0 0 8;
+    margin: 8px 0px 0px 8px;
 }
 
 #checked-icon i {
-    margin: -8 0 0 -8;
+    margin: -8px 0px 0px -8px;
 }
 
 .fullscreen .add-claim-section {

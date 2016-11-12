@@ -49,6 +49,7 @@ export class ClaimsComponent implements OnInit, AfterViewInit {
         (<any>$('.ui.button')).popup({
                                     hoverable  : false,
                                     position   : 'bottom right',
+                                    lastResort   : 'bottom right',
                                     on    : 'click'
         });
         (<any>$('.ui.search'))
