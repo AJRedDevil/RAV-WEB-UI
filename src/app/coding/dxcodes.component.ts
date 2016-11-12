@@ -35,6 +35,7 @@ export class DXCodesComponent implements OnInit {
   private _selectedDxDesc = "";
   private dxcodeCss: Array<DxCodeCss> = [];
   private reasons: Reasons[];
+  private BASE_URL: string;
 
   constructor(
     private _dxcodeService: DxCodeService,
@@ -46,6 +47,7 @@ export class DXCodesComponent implements OnInit {
         description: ['', Validators.required],
         comment: ['']
       });
+      this.BASE_URL = localStorage.getItem('RAV_SERVICE_URL');
   }
 
   private loadreasons() {
@@ -184,10 +186,12 @@ export class DXCodesComponent implements OnInit {
   searchDxCodeDesc(event) {
     var self = this;
     event.stopPropagation();
+    var DXCODE_SEARCH_URL = this.BASE_URL = '/search/dxcode/';
+    var DXDESC_SEARCH_URL = this.BASE_URL = '/search/dxdesc/';
     (<any>$('.ui.search.dxcode'))
             .search({
                 apiSettings: {
-                    url: '//localhost:8080/ravnepal/search/dxcode/',
+                    url: DXCODE_SEARCH_URL,
                     method: 'POST',
                     beforeXHR: function(xhr) {
                       xhr.setRequestHeader('Content-type', 'application/json');
@@ -215,7 +219,7 @@ export class DXCodesComponent implements OnInit {
     (<any>$('.ui.search.dxdescription'))
             .search({
                 apiSettings: {
-                    url: '//localhost:8080/ravnepal/search/dxdesc/',
+                    url: DXDESC_SEARCH_URL,
                     method: 'POST',
                     beforeXHR: function(xhr) {
                       xhr.setRequestHeader('Content-type', 'application/json');

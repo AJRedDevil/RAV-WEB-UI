@@ -46,6 +46,7 @@ export class ClaimsComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         this.loadClaims();
         var self = this;
+        var PROVIDER_SEARCH_URL = localStorage.getItem('baseUrl') + '/search/provider/';
         (<any>$('.ui.button')).popup({
                                     hoverable  : false,
                                     position   : 'bottom right',
@@ -55,7 +56,7 @@ export class ClaimsComponent implements OnInit, AfterViewInit {
         (<any>$('.ui.search'))
             .search({
                 apiSettings: {
-                    url: '//localhost:8080/ravnepal/search/provider/',
+                    url: PROVIDER_SEARCH_URL,
                     method: 'POST',
                     beforeXHR: function(xhr) {
                         xhr.setRequestHeader('Content-type', 'application/json');

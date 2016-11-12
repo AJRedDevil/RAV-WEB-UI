@@ -70,7 +70,7 @@ export class CommentCannotReviewComponent implements OnInit {
 
     reloadCannotReview() {
         this.selectedId = 0;
-        (<any>$('.ui.dropdown')).dropdown('restore defaults');
+        // (<any>$('.ui.dropdown')).dropdown('restore defaults');
         this.loadCommentCannotReview();
     }
 
