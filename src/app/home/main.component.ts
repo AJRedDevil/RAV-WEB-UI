@@ -52,7 +52,8 @@ export class MainComponent implements OnInit {
     }
 
     private fullScreenSingleton() {
-        this.chartWindow = window.open("http://localhost:3000/Chart", "popup", "location=no");
+        var CHART_URL =  localStorage.getItem("baseUrl") + "/Chart";
+        this.chartWindow = window.open(CHART_URL, "popup", "location=no");
         this.chartWindow.onbeforeunload = function () {
             localStorage.setItem("fullScreen", "");
         };
