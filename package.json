@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Risk Adjustment Data Validation",
   "scripts": {
-    "build": "typings install && NODE_ENV=production node node_modules/.bin/webpack && cp src/index.html dist/index.html",
+    "build": "typings install && NODE_ENV=production node node_modules/.bin/webpack && cp src/index.html dist/index.html && cp -R src/assets dist/assets",
     "postinstall": "npm run build",
     "server": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 3000  --content-base src",
     "start": "npm run server"
