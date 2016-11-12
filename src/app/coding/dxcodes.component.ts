@@ -35,7 +35,6 @@ export class DXCodesComponent implements OnInit {
   private _selectedDxDesc = "";
   private dxcodeCss: Array<DxCodeCss> = [];
   private reasons: Reasons[];
-  private BASE_URL: string;
 
   constructor(
     private _dxcodeService: DxCodeService,
@@ -47,7 +46,6 @@ export class DXCodesComponent implements OnInit {
         description: ['', Validators.required],
         comment: ['']
       });
-      this.BASE_URL = localStorage.getItem('baseUrl');
   }
 
   private loadreasons() {
@@ -186,8 +184,8 @@ export class DXCodesComponent implements OnInit {
   searchDxCodeDesc(event) {
     var self = this;
     event.stopPropagation();
-    var DXCODE_SEARCH_URL = this.BASE_URL + '/search/dxcode/';
-    var DXDESC_SEARCH_URL = this.BASE_URL + '/search/dxdesc/';
+    var DXCODE_SEARCH_URL = localStorage.getItem('baseUrl') + '/search/dxcode/';
+    var DXDESC_SEARCH_URL = localStorage.getItem('baseUrl') + '/search/dxdesc/';
     (<any>$('.ui.search.dxcode'))
             .search({
                 apiSettings: {

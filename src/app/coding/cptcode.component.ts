@@ -28,7 +28,6 @@ export class CPTCodesComponent{
   private _selectedCptxId = -1;
   private _selectedModifierId = -1;
   private cptcodeCss: Array<CptCodeCss> = [];
-  private BASE_URL: string;
 
   constructor(
     private _cptcodeService: CptCodeService,
@@ -40,7 +39,6 @@ export class CPTCodesComponent{
         modifiers: ['', Validators.required],
         comment: ['']
       });
-      this.BASE_URL = localStorage.getItem('baseUrl');
     }
 
   private loadCptCodes() {
@@ -125,8 +123,8 @@ export class CPTCodesComponent{
   searchCptCodeDesc(event) {
     var self = this;
     event.stopPropagation();
-    var CPTCODE_SEARCH_URL = this.BASE_URL + '/search/cptcode/';
-    var CPTDESC_SEARCH_URL = this.BASE_URL + '/search/cptdesc/';
+    var CPTCODE_SEARCH_URL = localStorage.getItem('baseUrl') + '/search/cptcode/';
+    var CPTDESC_SEARCH_URL = localStorage.getItem('baseUrl') + '/search/cptdesc/';
     (<any>$('.ui.search.cptcode'))
             .search({
                 apiSettings: {
@@ -183,7 +181,7 @@ export class CPTCodesComponent{
   searchModifier(event) {
     var self = this;
     event.stopPropagation();
-    var MODIFIER_SEARCH_URL = this.BASE_URL + '/search/modifier/';
+    var MODIFIER_SEARCH_URL = localStorage.getItem('baseUrl') + '/search/modifier/';
     (<any>$('.ui.search.modifiers'))
             .search({
                 apiSettings: {
