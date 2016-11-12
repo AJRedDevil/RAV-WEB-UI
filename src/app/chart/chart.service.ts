@@ -9,7 +9,10 @@ import { Chart } from './chart.model';
 @Injectable()
 export class ChartService { 
     private headers = new Headers({
-        'Content-type': 'application/json'
+        'Content-type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
     });
 
     constructor(private _http: Http) {}
