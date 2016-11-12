@@ -186,8 +186,8 @@ export class DXCodesComponent implements OnInit {
   searchDxCodeDesc(event) {
     var self = this;
     event.stopPropagation();
-    var DXCODE_SEARCH_URL = this.BASE_URL = '/search/dxcode/';
-    var DXDESC_SEARCH_URL = this.BASE_URL = '/search/dxdesc/';
+    var DXCODE_SEARCH_URL = this.BASE_URL + '/search/dxcode/';
+    var DXDESC_SEARCH_URL = this.BASE_URL + '/search/dxdesc/';
     (<any>$('.ui.search.dxcode'))
             .search({
                 apiSettings: {

@@ -125,8 +125,8 @@ export class CPTCodesComponent{
   searchCptCodeDesc(event) {
     var self = this;
     event.stopPropagation();
-    var CPTCODE_SEARCH_URL = this.BASE_URL = '/search/cptcode/';
-    var CPTDESC_SEARCH_URL = this.BASE_URL = '/search/cptdesc/';
+    var CPTCODE_SEARCH_URL = this.BASE_URL + '/search/cptcode/';
+    var CPTDESC_SEARCH_URL = this.BASE_URL + '/search/cptdesc/';
     (<any>$('.ui.search.cptcode'))
             .search({
                 apiSettings: {
