@@ -130,8 +130,7 @@
                     Please Confirm
                 </modal-content>
                 <modal-actions>
-                    <!--<div
-                        *ngIf="!isChartComplete"
+                    <div
                         class="ui button green">
                         <div
                             class=""
@@ -147,9 +146,6 @@
                             (click)="nextChartModal.hide(); saveForLater($event);">
                             Save For Later
                         </div>
-                    </div>-->
-                    <div class="ui positive basic button">
-                        <div class="" (click)="goToNext($event); nextChartModal.hide()">Yes</div>
                     </div>
                     <div class="ui negative basic button">
                         <div class="" (click)="nextChartModal.hide()">Cancel</div>

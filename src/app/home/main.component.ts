@@ -47,7 +47,7 @@ export class MainComponent implements OnInit {
         if (this.fullScreen) {
             this.clientPolling();
             this.reloaded = false;
-            setInterval(this.clientPolling, 3000);
+            setInterval(this.clientPolling, 1000);
         }
     }
 

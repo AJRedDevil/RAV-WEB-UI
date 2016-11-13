@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 
-import { MemberInfoComponent } from './member-info.component';
-import { CommentCannotReviewComponent } from './comment-cannot-review.component';
-import { ClaimsComponent } from './claims.component'
+import { MemberInfoComponent } from './memberInfo/member-info.component';
+import { CommentCannotReviewComponent } from './cannotReview/comment-cannot-review.component';
+import { ClaimsComponent } from './claims/claims.component'
 
 @Component({
     selector: 'coding',

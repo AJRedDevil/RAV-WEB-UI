@@ -148,7 +148,7 @@ export class CPTCodesComponent{
                   self.addCptCodeForm.patchValue({description: result.cptDesc});
                   self._selectedCptxId = result.id;
                 },
-                minCharacters : 3
+                minCharacters : 2
             });
     (<any>$('.ui.search.cptdescription'))
             .search({
@@ -173,7 +173,7 @@ export class CPTCodesComponent{
                   self.addCptCodeForm.patchValue({description: result.cptDesc});
                   self._selectedCptxId = result.id;
                 },
-                minCharacters : 3
+                minCharacters : 1
             });
   }
 
@@ -204,7 +204,7 @@ export class CPTCodesComponent{
                   self.addCptCodeForm.patchValue({modifiers: result.modifiers});
                   self._selectedModifierId = result.id;
                 },
-                minCharacters : 3
+                minCharacters : 1
             });
   }
 }

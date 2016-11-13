@@ -1,24 +1,23 @@
-import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
-import { Claim } from './claim.model';
+import { Claim } from '../claim/claim.model';
 import { ClaimsService } from './claims.service';
-import { DateValidators } from '../shared/dateValidators';
-import { DateLib } from '../shared/dateLibrary';
+import { DateValidators } from '../../shared/dateValidators';
+import { DateLib } from '../../shared/dateLibrary';
 
 @Component({
     selector: 'claims',
     templateUrl: './claims.component.html',
     providers: [ClaimsService]
 })
-export class ClaimsComponent implements OnInit, AfterViewInit {
+export class ClaimsComponent implements OnInit {
     private claims: Claim[];
     private addClaimForm: FormGroup;
     private dosFormClass = "";
     private _selectedProviderId: number;
     private _selectedProvider = "";
-    private isChartComplete: boolean;
     @Output('getNextChart') nextChart = new EventEmitter();
 
     constructor(
@@ -77,14 +76,6 @@ export class ClaimsComponent implements OnInit, AfterViewInit {
                     self._selectedProvider = result.fullName;
                 },
                 minCharacters : 3
-            });
-    }
-
-    ngAfterViewInit() {
-        this._claimService.isCodingcomplete()
-            .then(res => {
-                if(res.flag)
-                    this.isChartComplete = false; //res.flag;
             });
     }
 
@@ -163,8 +154,9 @@ export class ClaimsComponent implements OnInit, AfterViewInit {
         this._claimService.codingComplete()
             .then(res => {
                 if (res.flag) {
-                    this.isChartComplete = true;
-                    this._toastr.success("Coding Complete.")   
+                    // this.isChartComplete = true;
+                    this._toastr.success("Coding Complete.");   
+                    this._getNextChart(true);
                 }
             });
     }
@@ -177,11 +169,6 @@ export class ClaimsComponent implements OnInit, AfterViewInit {
                     this._toastr.success("Saved For Later.")
                 }
             });
-    }
-
-    goToNext(e) {
-        e.stopPropagation();
-        this._getNextChart(true);
     }
 
     registerNext(e) {

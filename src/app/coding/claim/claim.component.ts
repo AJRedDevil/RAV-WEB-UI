@@ -4,10 +4,10 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 import { Claim } from './claim.model';
 import { ClaimService } from './claim.service';
-import { DXCodesComponent } from "./dxcodes.component"
-import { CPTCodesComponent } from "./cptcode.component"
-import { DateValidators } from '../shared/dateValidators';
-import { DateLib } from '../shared/dateLibrary';
+import { DXCodesComponent } from "../dxCode/dxcodes.component"
+import { CPTCodesComponent } from "../cptCode/cptcode.component"
+import { DateValidators } from '../../shared/dateValidators';
+import { DateLib } from '../../shared/dateLibrary';
 
 @Component({
     selector: 'claim',

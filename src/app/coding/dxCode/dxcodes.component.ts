@@ -240,7 +240,7 @@ export class DXCodesComponent implements OnInit {
                   self._selectedDxCode = result.dxCode;
                   self._selectedDxDesc = result.dxDesc;
                 },
-                minCharacters : 3
+                minCharacters : 1
             });
   }
 

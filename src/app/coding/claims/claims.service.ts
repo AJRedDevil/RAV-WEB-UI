@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import "rxjs/add/operator/toPromise";
 import "rxjs/add/operator/map";
 
-import { Claim } from './claim.model';
+import { Claim } from '../claim/claim.model';
 
 @Injectable()
 export class ClaimsService { 
@@ -52,8 +52,8 @@ export class ClaimsService {
 
     codingComplete(): Promise<any> {
         var userContent = {
-            "id": localStorage.getItem('loggedInUserId'),
-            "chartId": localStorage.getItem("chartId")
+            // "id": localStorage.getItem('loggedInUserId'),
+            "id": localStorage.getItem("chartId")
         };
         var baseUrl = localStorage.getItem('baseUrl')
         var url = `${baseUrl}/chart/registercodingcomplete/`;
