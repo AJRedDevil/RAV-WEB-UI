@@ -2,7 +2,7 @@
 export class DateLib {
     static convertToddmmyyyy(dateString): string {
         /**
-         * Convert yyyy-mm-dd to dd/mm/yyyy
+         * Convert yyyy-mm-dd to mm/dd/yyyy
          */
         var _date = new Date(dateString);
         var yyyy = _date.getFullYear();
@@ -14,7 +14,7 @@ export class DateLib {
         if(parseInt(mm)< 10){
             mm = '0' + mm;
         } 
-        var newFormat = dd.toString() + "/" + mm.toString() + "/" + yyyy.toString();
+        var newFormat = mm.toString() + "/" + dd.toString() + "/" + yyyy.toString();
         return newFormat
     }
 
