@@ -65,7 +65,7 @@ export class DxCodeService {
     }
 
     postReason(dxCodeContent): Promise<any> {
-        dxCodeContent["id"] = localStorage.getItem('loggedInUserId');
+        // dxCodeContent["id"] = localStorage.getItem('loggedInUserId');
         var baseUrl = localStorage.getItem('baseUrl')
         var url = `${baseUrl}/dxclaim/setReason/`;
         return this._http.post(url, JSON.stringify(dxCodeContent), {headers: this.headers})

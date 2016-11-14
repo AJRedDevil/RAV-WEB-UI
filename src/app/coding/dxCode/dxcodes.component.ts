@@ -252,7 +252,7 @@ export class DXCodesComponent implements OnInit {
   private setReason(event, reasonId, dxcode:DXCode) {
     event.stopPropagation();
     var dxCodeContent = {
-      dxId: dxcode.id,
+      id: dxcode.id,
       reasonId: reasonId
     }
     this._dxcodeService.postReason(dxCodeContent)
