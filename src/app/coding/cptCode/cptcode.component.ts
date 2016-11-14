@@ -87,9 +87,14 @@ export class CPTCodesComponent{
     };
     this._cptcodeService.addCptCode(cptCodeContent)
         .then(res => {
-          this._toastr.success("CptCode added successfully.");
-          this.addCptCodeForm.reset();
-          this.loadCptCodes();
+          if (res.flag) {
+            this._toastr.success("CptCode added successfully.");
+            this.addCptCodeForm.reset();
+            this.loadCptCodes();
+          } else {
+            this._toastr.error("There was a problem adding CptCode.");
+            this.addCptCodeForm.reset();
+          }
         });
   }
 

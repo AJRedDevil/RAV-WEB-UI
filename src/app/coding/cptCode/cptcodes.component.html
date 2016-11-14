@@ -12,8 +12,7 @@
         <!-- https://github.com/angular/angular/issues/5967 -->
         <tr>
             <td>
-                {{ sn + 1 }}
-                <span *ngIf="cptcode.insertType == 'New'"  class="ui red header">N</span>
+                {{ sn + 1 }} <font *ngIf="dxcode.insertType == 'New'" color="red">N</font>
             </td>
             <td>{{ cptcode.cptCode.cptCode }}</td>
             <td>{{ cptcode.cptCode.cptDesc }}</td>
@@ -49,7 +48,8 @@
     <div class="ui form">
         <form [formGroup]="addCptCodeForm" (ngSubmit)="addCptCode()">
             <div class="fields">
-                <div class="field">
+                <div 
+                    class="field">
                     <div class="ui search cptcode" [id]="claimId">
                         <input
                             class="prompt"
@@ -68,16 +68,6 @@
                             placeholder="Enter description"
                             (keyup)="searchCptCodeDesc($event)"
                             formControlName="description">
-                        <div class="results"></div>
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="ui search modifier" [id]="claimId">
-                        <input
-                            class="prompt"
-                            type="text"
-                            placeholder="Enter modifier"
-                            formControlName="modifiers">
                         <div class="results"></div>
                     </div>
                 </div>

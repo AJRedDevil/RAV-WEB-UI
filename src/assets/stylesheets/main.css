@@ -1242,18 +1242,6 @@ button.icon [class*=" icon-"] {
     width: 40%;
 }
 
-.cpt-wrap .add-claim-section .ui.form .fields>.field:first-child {
-    width: 40%;
-}
-
-.cpt-wrap .add-claim-section .ui.form .fields:last-child .field:nth-child(2) {
-    width: 50%;
-}
-
-.cpt-wrap .add-claim-section .ui.form .fields:last-child .field:nth-child(4) {
-    width: 40%;
-}
-
 .add-claim-section .ui.form input[type=text] {
     font-size: 12px;
 }

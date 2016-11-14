@@ -133,9 +133,14 @@ export class DXCodesComponent implements OnInit {
       console.log("Correct dxclaim");
       this._dxcodeService.addDxCode(dxCodeContent)
           .then(res => {
-            this._toastr.success("DxCode added successfully.");
-            this.addDxCodeForm.reset();
-            this.reloadDxCodes();
+            if (res.flag) {
+              this._toastr.success("DxCode added successfully.");
+              this.addDxCodeForm.reset();
+              this.reloadDxCodes();
+            } else {
+              this._toastr.error("There was a problem adding DxCode");
+              this.addDxCodeForm.reset();
+            }
           });
       }
     }

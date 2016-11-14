@@ -21,7 +21,7 @@
                     <div class="review-select">
                         <select
                             class="ui dropdown"
-                            (change)="myModalNormal.show({inverted: true}); holdCannotReview($event, {id: cr.value});"
+                            (change)="myModalNormal.show({blurring: true}); holdCannotReview($event, {id: cr.value});"
                             #cr>
                             <option value="">Select one</option>
                             <option

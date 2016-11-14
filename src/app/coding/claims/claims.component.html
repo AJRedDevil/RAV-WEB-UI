@@ -77,7 +77,7 @@
     <div class="completion-section clearfix">
         <div>
             <!-- TODO: write event emitter for Coding Complete -->
-            <button class="btn btn-success" (click)="codingCompeleteModal.show({inverted: true});">
+            <button class="btn btn-success" (click)="codingCompeleteModal.show({blurring: true});">
               <span class="icon-checkmark"></span>Coding complete
             </button>
             <sm-modal
@@ -97,7 +97,7 @@
                 </modal-actions>
             </sm-modal>
             <!-- TODO: write event emitter for Save for later -->
-            <button class="btn btn-warn" (click)="saveForLaterModal.show({inverted: true})">
+            <button class="btn btn-warn" (click)="saveForLaterModal.show({blurring: true})">
               <span class="icon-later"></span>Save for later
             </button>
             <sm-modal
@@ -118,7 +118,7 @@
             </sm-modal>
         </div>
         <div>
-            <button class="btn btn-info" (click)="nextChartModal.show({inverted: true})">
+            <button class="btn btn-info" (click)="nextChartModal.show({blurring: true})">
                 Next
                 <span class="icon-next"></span>
             </button>
