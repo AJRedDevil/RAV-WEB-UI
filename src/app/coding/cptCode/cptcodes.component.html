@@ -12,7 +12,8 @@
         <!-- https://github.com/angular/angular/issues/5967 -->
         <tr>
             <td>
-                {{ sn + 1 }} <font *ngIf="cptcode.insertType == 'New'" color="red">N</font>
+                {{ sn + 1 }}
+                <!--<b *ngIf="cptcode.insertType == 'New'" color="red">N</b>-->
             </td>
             <td>{{ cptcode.cptCode.cptCode }}</td>
             <td>{{ cptcode.cptCode.cptDesc }}</td>

@@ -25,7 +25,8 @@
                                                     <input
                                                         type="date"
                                                         placeholder="dd/mm/yyyy"
-                                                        formControlName="dateOfService">
+                                                        formControlName="dateOfService"
+                                                        [max]="today_date">
                                                     <div
                                                         class="error"
                                                         *ngIf="!addClaimForm.controls.dateOfService.valid">

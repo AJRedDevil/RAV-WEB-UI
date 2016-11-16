@@ -15,7 +15,8 @@
         <!-- https://github.com/angular/angular/issues/5967 -->
         <tr>
             <td>
-                {{ sn + 1 }} <font *ngIf="dxcode.insertType == 'New'" color="red">N</font>
+                {{ sn + 1 }}
+                <!--<b *ngIf="dxcode.insertType == 'New'" color="red">N</b>-->
             </td>
             <td>{{ dxcode.dxCode.dxCode }}</td>
             <td>{{ dxcode.dxCode.dxDesc }}</td>

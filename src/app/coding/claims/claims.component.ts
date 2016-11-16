@@ -18,6 +18,7 @@ export class ClaimsComponent implements OnInit {
     private dosFormClass = "";
     private _selectedProviderId: number;
     private _selectedProvider = "";
+    private today_date = "";
     @Output('getNextChart') nextChart = new EventEmitter();
 
     constructor(
@@ -33,6 +34,7 @@ export class ClaimsComponent implements OnInit {
                 provider: ['']
             });
             this._selectedProviderId = -1;
+            this.today_date = DateLib.getTodayDate();
     }
 
     private loadClaims(): void {
@@ -109,7 +111,7 @@ export class ClaimsComponent implements OnInit {
             claimContent["provider"] = {
                 "id": this._selectedProviderId
             };
-            claimContent["dateOfService"] = DateLib.convertToddmmyyyy(this.addClaimForm.controls['dateOfService'].value);
+            claimContent["dateOfService"] = DateLib.convertTommddyyyy(this.addClaimForm.controls['dateOfService'].value);
             this._claimService.addClaim(claimContent)
                 .then(res => {
                     (<any>$('.ui.button')).popup('hide');

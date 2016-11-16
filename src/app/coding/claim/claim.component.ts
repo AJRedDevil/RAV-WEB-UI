@@ -20,6 +20,8 @@ export class ClaimComponent implements OnInit {
     private dosForm: FormGroup;
     private claimCommentForm: FormGroup;
     private comment = "";
+    private todayDate = "";
+    private dosDate: string;
     @Output("reloadClaims")loadClaims = new EventEmitter();
 
     @ViewChild(DXCodesComponent) dxcodeComponent: DXCodesComponent;
@@ -36,11 +38,12 @@ export class ClaimComponent implements OnInit {
                 dos: ['', Validators.required, DateValidators.shouldHaveDateFormat]
             });
     }
-    
     ngOnInit() {
+        this.todayDate = DateLib.getTodayDate();
         this._isAccordianActive = false;
         this.comment = this.inputClaim.comment;
-        this.dosForm.patchValue({dos: DateLib.convertToyyyymmdd(this.inputClaim.dateOfService)});
+        this.dosDate = this.inputClaim.dateOfService;
+        this.dosForm.patchValue({dos: DateLib.convertToyyyymmdd(this.dosDate)});
         (<any>$('.ui.checkbox')).checkbox();
         (<any>$('.ui.button')).popup({
             hoverable  : false,
@@ -72,14 +75,16 @@ export class ClaimComponent implements OnInit {
     updateDOS() {
         var claimComponent = {
             claimId: this.inputClaim.claimId,
-            dateOfService: DateLib.convertToddmmyyyy(this.dosForm.controls['dos'].value)
+            dateOfService: DateLib.convertTommddyyyy(this.dosForm.controls['dos'].value)
         }
         this._claimService.updateDos(claimComponent)
             .then(res => {
                 if (res.flag) {
                     (<any>$('span#dos-date')).popup('hide');
-                    this.loadClaims.emit({"load": true});
+                    this.dosDate = this.dosForm.controls['dos'].value;
                     this._toastr.success("Date of Service Updated");
+                } else {
+                    this._toastr.error("Problem while updating Date Of Service");
                 }
             });
     }

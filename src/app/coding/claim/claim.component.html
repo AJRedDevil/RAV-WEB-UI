@@ -28,7 +28,7 @@
                 data-viewformat="dd/mm/yyyy"
                 data-pk="1"
 				class="editable editable-input">
-                {{ inputClaim.dateOfService }}
+                {{ dosDate | convertTommddyyyy }}
             </span>
 			<div class="ui fluid popup top left transition hidden">
 				<div class="ui column divided grid">
@@ -42,6 +42,7 @@
 										<input
 											type="date"
 											placeholder="dd/mm/yyyy"
+											[max]="todayDate"
 											formControlName="dos">
 										<div
 											class="error"
