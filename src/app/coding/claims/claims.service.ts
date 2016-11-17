@@ -65,8 +65,8 @@ export class ClaimsService {
 
     saveForLater(): Promise<any> {
         var userContent = {
-            "id": localStorage.getItem('loggedInUserId'),
-            "chartId": localStorage.getItem("chartId")
+            // "id": localStorage.getItem('loggedInUserId'),
+            "id": localStorage.getItem("chartId")
         };
         var baseUrl = localStorage.getItem('baseUrl')
         var url = `${baseUrl}/chart/saveforlater/`;

@@ -13,7 +13,6 @@
         <tr>
             <td>
                 {{ sn + 1 }}
-                <!--<b *ngIf="cptcode.insertType == 'New'" color="red">N</b>-->
             </td>
             <td>{{ cptcode.cptCode.cptCode }}</td>
             <td>{{ cptcode.cptCode.cptDesc }}</td>
@@ -27,6 +26,11 @@
                     [ngClass]="cptcodeCss[sn].commentIconClass">
                 <span class="icon-remark"></span>
               </button>
+              <div
+                    *ngIf="cptcode.insertType == 'New'"
+                    class="label">
+                    <span>New</span>
+                </div>
             </td>
         </tr>
         <tr class="inline-message" [ngClass]="cptcodeCss[sn].commentClass">

@@ -67,6 +67,11 @@
                         </div>
                     </sm-dropdown>
                 </button>
+                <div
+                    *ngIf="dxcode.insertType == 'New'"
+                    class="label">
+                    <span>New</span>
+                </div>
             </td>
         </tr>
         <tr class="inline-message" [ngClass]="dxcodeCss[sn].commentClass">

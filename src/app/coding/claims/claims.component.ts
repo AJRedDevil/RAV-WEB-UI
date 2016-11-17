@@ -19,6 +19,7 @@ export class ClaimsComponent implements OnInit {
     private _selectedProviderId: number;
     private _selectedProvider = "";
     private today_date = "";
+    private isChartComplete: boolean;
     @Output('getNextChart') nextChart = new EventEmitter();
 
     constructor(
@@ -35,6 +36,7 @@ export class ClaimsComponent implements OnInit {
             });
             this._selectedProviderId = -1;
             this.today_date = DateLib.getTodayDate();
+            this.isChartComplete = false;
     }
 
     private loadClaims(): void {
@@ -144,7 +146,7 @@ export class ClaimsComponent implements OnInit {
             .then(res => {
                 if (res.flag) {
                     if (reload) {
-                        this.nextChart.emit({ "nextChart": true });
+                        this.nextChart.emit({ "nextChart": false });
                     }
                     this.loadClaims();
                 }
@@ -156,9 +158,8 @@ export class ClaimsComponent implements OnInit {
         this._claimService.codingComplete()
             .then(res => {
                 if (res.flag) {
-                    // this.isChartComplete = true;
-                    this._toastr.success("Coding Complete.");   
-                    this._getNextChart(true);
+                    this.isChartComplete = true;
+                    this._toastr.success("Coding Complete.");
                 }
             });
     }
@@ -171,6 +172,10 @@ export class ClaimsComponent implements OnInit {
                     this._toastr.success("Saved For Later.")
                 }
             });
+    }
+
+    goToNextChart(event) {
+        this._getNextChart(true);
     }
 
     registerNext(e) {

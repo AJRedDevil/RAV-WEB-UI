@@ -1839,3 +1839,53 @@ button.icon [class*=" icon-"] {
     }
 
 }
+
+/*
+    Claim New Changed
+*/
+.changed {
+    color: green;
+}
+
+.new {
+    color: red;
+}
+
+/*
+ * dxCode and cptCode New
+*/
+.claim-wrap .text-left{
+  position: relative;
+}
+
+.cpt-wrap .text-left {
+  position: relative;
+}
+
+.claim-wrap .label
+{
+  position: absolute;
+  top: 0;
+  background: #ea2828;
+  color: #fff;
+  padding: 0px 6px;
+  font-size: 10px;
+  right: 8px;
+  border-radius: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cpt-wrap .label
+ {
+  position: absolute;
+  top: 0;
+  background: #ea2828;
+  color: #fff;
+  padding: 0px 6px;
+  font-size: 10px;
+  right: 8px;
+  border-radius: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+} 

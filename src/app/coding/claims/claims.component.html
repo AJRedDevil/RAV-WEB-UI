@@ -106,7 +106,7 @@
                 icon="save"
                 #saveForLaterModal>
                 <modal-content>
-                    Are you sure coding is complete?
+                    Save For Later
                 </modal-content>
                 <modal-actions>
                     <div class="ui positive basic button">
@@ -132,6 +132,7 @@
                 </modal-content>
                 <modal-actions>
                     <div
+                        *ngIf="!isChartComplete"
                         class="ui button green">
                         <div
                             class=""
@@ -145,7 +146,15 @@
                         <div
                             class=""
                             (click)="nextChartModal.hide(); saveForLater($event);">
-                            Save For Later
+                        </div>
+                    </div>
+                    <div
+                        *ngIf="isChartComplete"
+                        class="ui positive basic button">
+                        <div
+                            class=""
+                            (click)="nextChartModal.hide(); goToNextChart($event);">
+                            YES
                         </div>
                     </div>
                     <div class="ui negative basic button">

@@ -15,9 +15,9 @@ export class CodingComponent {
     @Output() getNextChart = new EventEmitter();
 
     nextChart($event) {
-        console.log("CodingComponent");
-        console.log($event);
-        this.claimsComponent.registerNext($event);
+        if ($event.newChart) {
+            this.claimsComponent.registerNext($event);
+        }
         this.memberInfo.nextChart($event);
         this.commentCannotReview.nextChart($event);
         this.getNextChart.emit($event);

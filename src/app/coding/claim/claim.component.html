@@ -20,8 +20,8 @@
 		</div>
 	</div>
 	<div class="claim-title-inner">
-		<h2>Claim ID: {{ inputClaim.claimId }} |
-			<small> DOS:
+		<h2><small>Claim ID: {{ inputClaim.claimId }} |
+			 DOS:
             <span
                 id="dos-date"
                 data-type="date"
@@ -62,8 +62,8 @@
 				</div>
 			</div>
              | Coding Date: {{ inputClaim.codingDate }}
-			<span *ngIf="inputClaim.insertType == 'New'"  class="ui red header">New</span>
-			<span *ngIf="inputClaim.insertType == 'Changed'"  class="ui green header">Changed</span>
+			<span *ngIf="inputClaim.insertType == 'New'"  class="new">New</span>
+			<span *ngIf="inputClaim.insertType == 'Changed'"  class="changed">Changed</span>
         	</small>
 		</h2>
 	</div>
