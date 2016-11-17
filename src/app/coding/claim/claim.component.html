@@ -62,7 +62,7 @@
 				</div>
 			</div>
              | Coding Date: {{ inputClaim.codingDate }}
-			<span *ngIf="inputClaim.insertType == 'New'"  class="new">New</span>
+			<span *ngIf="inputClaim.insertType == 'New' && !dosUpdated"  class="new">New</span>
 			<span *ngIf="inputClaim.insertType == 'Changed' || dosUpdated"  class="changed">Changed</span>
         	</small>
 		</h2>

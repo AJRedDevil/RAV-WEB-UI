@@ -145,6 +145,7 @@ export class ClaimsComponent implements OnInit {
         this._claimService.goToNextChart()
             .then(res => {
                 if (res.flag) {
+                    this.isChartComplete = false;
                     if (reload) {
                         this.nextChart.emit({ "nextChart": false });
                     }
