@@ -90,7 +90,7 @@
                 </modal-content>
                 <modal-actions>
                     <div class="ui positive basic button">
-                        <div class="" (click)="codingCompeleteModal.hide(); codingComplete($event);">YES</div>
+                        <div class="" (click)="codingCompeleteModal.hide(); codingComplete($event, false);">YES</div>
                     </div>
                     <div class="ui negative basic button">
                         <div class="" (click)="codingCompeleteModal.hide()">NO</div>
@@ -106,7 +106,6 @@
                 icon="save"
                 #saveForLaterModal>
                 <modal-content>
-                    Save For Later
                 </modal-content>
                 <modal-actions>
                     <div class="ui positive basic button">
@@ -136,7 +135,7 @@
                         class="ui button green">
                         <div
                             class=""
-                            (click)="nextChartModal.hide(); codingComplete($event);">
+                            (click)="nextChartModal.hide(); codingComplete($event, true);">
                             Coding Complete
                         </div>
                     </div>
@@ -146,6 +145,7 @@
                         <div
                             class=""
                             (click)="nextChartModal.hide(); saveForLater($event);">
+                            Save For Later
                         </div>
                     </div>
                     <div

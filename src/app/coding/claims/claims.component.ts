@@ -153,13 +153,17 @@ export class ClaimsComponent implements OnInit {
             });
     }
 
-    codingComplete(event) {
+    codingComplete(event, reload) {
+        console.log(reload);
         event.stopPropagation();
         this._claimService.codingComplete()
             .then(res => {
                 if (res.flag) {
                     this.isChartComplete = true;
                     this._toastr.success("Coding Complete.");
+                    if (reload) {
+                        this.goToNextChart(true);
+                    }
                 }
             });
     }

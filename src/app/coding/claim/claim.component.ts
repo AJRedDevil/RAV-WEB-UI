@@ -22,6 +22,7 @@ export class ClaimComponent implements OnInit {
     private comment = "";
     private todayDate = "";
     private dosDate: string;
+    private dosUpdated: boolean;
     @Output("reloadClaims")loadClaims = new EventEmitter();
 
     @ViewChild(DXCodesComponent) dxcodeComponent: DXCodesComponent;
@@ -37,6 +38,7 @@ export class ClaimComponent implements OnInit {
             this.dosForm = fb.group({
                 dos: ['', Validators.required, DateValidators.shouldHaveDateFormat]
             });
+            this.dosUpdated = false;
     }
     ngOnInit() {
         this.todayDate = DateLib.getTodayDate();
@@ -82,6 +84,7 @@ export class ClaimComponent implements OnInit {
                 if (res.flag) {
                     (<any>$('span#dos-date')).popup('hide');
                     this.dosDate = this.dosForm.controls['dos'].value;
+                    this.dosUpdated = true;
                     this._toastr.success("Date of Service Updated");
                 } else {
                     this._toastr.error("Problem while updating Date Of Service");
