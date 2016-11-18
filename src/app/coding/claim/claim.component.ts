@@ -74,6 +74,10 @@ export class ClaimComponent implements OnInit {
         }
     }
 
+    popDosDate() {
+        this.dosForm.patchValue({dos: DateLib.convertToyyyymmdd(this.dosDate)});
+    }
+
     updateDOS() {
         var claimComponent = {
             claimId: this.inputClaim.claimId,
