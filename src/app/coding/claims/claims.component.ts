@@ -169,12 +169,15 @@ export class ClaimsComponent implements OnInit {
             });
     }
 
-    saveForLater(event) {
+    saveForLater(event, nextChart) {
         event.stopPropagation();
         this._claimService.saveForLater()
             .then(res => {
                 if (res.flag) {
                     this._toastr.success("Saved For Later.")
+                    if (nextChart) {
+                        this.goToNextChart(true);
+                    }
                 }
             });
     }

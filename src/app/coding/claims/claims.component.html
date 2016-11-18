@@ -109,7 +109,7 @@
                 </modal-content>
                 <modal-actions>
                     <div class="ui positive basic button">
-                        <div class="" (click)="saveForLaterModal.hide(); saveForLater($event);">YES</div>
+                        <div class="" (click)="saveForLaterModal.hide(); saveForLater($event, false);">YES</div>
                     </div>
                     <div class="ui negative basic button">
                         <div class="" (click)="saveForLaterModal.hide()">NO</div>
@@ -144,7 +144,7 @@
                         class="ui button yellow">
                         <div
                             class=""
-                            (click)="nextChartModal.hide(); saveForLater($event);">
+                            (click)="nextChartModal.hide(); saveForLater($event, true);">
                             Save For Later
                         </div>
                     </div>
