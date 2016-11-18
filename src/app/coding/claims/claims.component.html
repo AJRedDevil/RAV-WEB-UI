@@ -77,7 +77,6 @@
     </div>
     <div class="completion-section clearfix">
         <div>
-            <!-- TODO: write event emitter for Coding Complete -->
             <button class="btn btn-success" (click)="codingCompeleteModal.show({blurring: true});">
               <span class="icon-checkmark"></span>Coding complete
             </button>
@@ -97,7 +96,6 @@
                     </div>
                 </modal-actions>
             </sm-modal>
-            <!-- TODO: write event emitter for Save for later -->
             <button class="btn btn-warn" (click)="saveForLaterModal.show({blurring: true})">
               <span class="icon-later"></span>Save for later
             </button>
@@ -118,24 +116,28 @@
             </sm-modal>
         </div>
         <div>
-            <button class="btn btn-info" (click)="nextChartModal.show({blurring: true})">
+            <button
+                class="btn btn-info"
+                (click)="activeModal()">
                 Next
                 <span class="icon-next"></span>
             </button>
-            <sm-modal
-                title="Next Chart"
-                icon="file"
-                #nextChartModal>
-                <modal-content>
-                    Please Confirm
-                </modal-content>
-                <modal-actions>
+            <lsu-modal [(ngModel)]="nextChartModal" [options]="modalOptions">
+                <h2 class="ui icon header">
+                    <i class="file icon"></i>
+                    <div class="content">
+                    </div>
+                </h2>
+                <div class="image content">
+                    Load Next Chart
+                </div>
+                <div class="actions">
                     <div
                         *ngIf="!isChartComplete"
                         class="ui button green">
                         <div
                             class=""
-                            (click)="nextChartModal.hide(); codingComplete($event, true);">
+                            (click)="cancelNextChartModal(); codingComplete($event, true);">
                             Coding Complete
                         </div>
                     </div>
@@ -144,7 +146,7 @@
                         class="ui button yellow">
                         <div
                             class=""
-                            (click)="nextChartModal.hide(); saveForLater($event, true);">
+                            (click)="cancelNextChartModal(); saveForLater($event, true);">
                             Save For Later
                         </div>
                     </div>
@@ -153,15 +155,15 @@
                         class="ui positive basic button">
                         <div
                             class=""
-                            (click)="nextChartModal.hide(); goToNextChart($event);">
+                            (click)="cancelNextChartModal(); goToNextChart($event);">
                             YES
                         </div>
                     </div>
                     <div class="ui negative basic button">
-                        <div class="" (click)="nextChartModal.hide()">Cancel</div>
+                        <div class="" (click)="cancelNextChartModal()">Cancel</div>
                     </div>
-                </modal-actions>
-            </sm-modal>
+                </div>
+            </lsu-modal>
         </div>
     </div>
 </div>

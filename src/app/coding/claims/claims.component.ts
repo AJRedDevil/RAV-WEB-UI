@@ -20,6 +20,8 @@ export class ClaimsComponent implements OnInit {
     private _selectedProvider = "";
     private today_date = "";
     private isChartComplete: boolean;
+    private nextChartModal: boolean;
+    private modalOptions: any;
     @Output('getNextChart') nextChart = new EventEmitter();
 
     constructor(
@@ -81,6 +83,11 @@ export class ClaimsComponent implements OnInit {
                 },
                 minCharacters : 3
             });
+        this.modalOptions = {
+            "size": "small",
+            "type": "default",
+            "closeable": true
+        }
     }
 
     private resetForm() {
@@ -192,5 +199,16 @@ export class ClaimsComponent implements OnInit {
 
     reloadClaims(event) {
         this.loadClaims();
+    }
+
+    activeModal(): void {
+        if (this.isChartComplete)
+            this.goToNextChart(true);
+        else
+            this.nextChartModal = true;
+    }
+
+    cancelNextChartModal(): void {
+        this.nextChartModal = false;
     }
 }

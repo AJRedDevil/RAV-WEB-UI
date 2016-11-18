@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule }  from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ToastModule, ToastOptions } from "ng2-toastr/ng2-toastr";
 import { NgSemanticModule } from 'ng-semantic';
+import { L_SEMANTIC_UI_MODULE } from 'angular2-semantic-ui';
 
 import { AppComponent }   from './app.component';
 import { MainComponent } from './home/main.component';
@@ -43,7 +44,8 @@ let toastOptions = <ToastOptions> {
         HttpModule,
         routing,
         ToastModule.forRoot(toastOptions),
-        NgSemanticModule
+        NgSemanticModule,
+        L_SEMANTIC_UI_MODULE
     ],
     declarations: [
         AppComponent,
