@@ -72,7 +72,7 @@ export class CommentCannotReviewComponent implements OnInit {
             .then(res => {
                 if (res.flag) {
                     this._toastr.success("Review has been registered.")
-                    this.loadNextChart.emit({'newChart': true});
+                    this.loadNextChart.emit({'newChart': false, 'loadComponent': true});
                 } else {
                     this._toastr.error("Problem encountered during cannot review registration");
                 }

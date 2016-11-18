@@ -17,6 +17,8 @@ export class CodingComponent {
     nextChart($event) {
         if ($event.newChart) {
             this.claimsComponent.registerNext($event);
+        } else if ($event.loadComponent) {
+            this.claimsComponent.reloadClaims(true);
         }
         this.memberInfo.nextChart($event);
         this.commentCannotReview.nextChart($event);
