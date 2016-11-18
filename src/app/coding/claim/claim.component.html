@@ -1,13 +1,19 @@
 <div class="claim-inner">
 	<!-- TODO: active only for particular row? -->
-	<div class="title" [class.light-yellow]="!inputClaim.reviewed" [class.light-green]="inputClaim.reviewed">
+	<div
+		class="title"
+		[class.light-yellow]="!inputClaim.reviewed"
+		[class.light-green]="inputClaim.reviewed"
+		[class.active]="inputClaim.active">
 		<i
 			class="dropdown icon"
 			(click)="activeInactive()">
 		</i>
 	</div>
 	<!-- TODO: active class only on the latest accordian?? -->
-	<div class="content">
+	<div
+		class="content"
+		[class.active]="inputClaim.active">
 		<div class="card-body">
 			<div class="claim-wrap table-responsive">
 				<dxcodes [claimId]="inputClaim.claimId">

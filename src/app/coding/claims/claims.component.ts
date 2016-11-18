@@ -13,7 +13,7 @@ import { DateLib } from '../../shared/dateLibrary';
     providers: [ClaimsService]
 })
 export class ClaimsComponent implements OnInit {
-    private claims: Claim[];
+    private claims: Claim[] = [];
     private addClaimForm: FormGroup;
     private dosFormClass = "";
     private _selectedProviderId: number;
@@ -49,6 +49,15 @@ export class ClaimsComponent implements OnInit {
         this._claimService.getClaims()
             .then(res => {
                 this.claims = res;
+                var activeFound = false;
+                this.claims.forEach(element => {
+                    if (!element.reviewed && !activeFound) {
+                        element.active = true;
+                        activeFound = true;
+                    } else {
+                        element.active = false;
+                    }
+                });
             });
     }
 

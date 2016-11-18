@@ -73,6 +73,10 @@
                     </claim>
                 </div>
             </div>
+            <h2 *ngIf="claims.length == 0" class="ui center aligned icon header">
+                <i class="warning sign icon"></i>
+                No Claims/Encounter
+            </h2>
         </div>
     </div>
     <div class="completion-section clearfix">

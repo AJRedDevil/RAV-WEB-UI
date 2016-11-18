@@ -4,4 +4,5 @@ export class Claim {
     codingDate: string;
     reviewed: boolean;
     comment: string;
+    active: boolean;
 }
