@@ -23,7 +23,7 @@ export class MainComponent implements OnInit {
     }
 
     ngOnInit() {
-        (<any>$('.dropdown')).dropdown();
+        (<any>$('.maindropdown')).dropdown();
         (<any>$('.ui.accordion')).accordion();
         (<any>$('.ui.checkbox')).checkbox();
         if (this.fullScreen && this.chartWindow == null) {

@@ -18,35 +18,30 @@
                     <span>
                         <strong>Cannot Review</strong>
                     </span>
-                    <div class="review-select">
-                        <select
-                            class="ui dropdown"
-                            (change)="myModalNormal.show({blurring: true}); holdCannotReview($event, {id: cr.value});"
-                            #cr>
-                            <option value="">Select one</option>
-                            <option
-                                *ngFor="let cannotReview of cannotReviews"
-                                [value]="cannotReview.id">
-                                {{ cannotReview.statement }}
-                            </option>
-                        </select>
-                    </div>
-                    <sm-modal
-                        title="Cannot Review"
-                        icon="warning sign"
-                        #myModalNormal>
-                        <modal-content>
+                    <lsu-dropdown
+                        class="review-select"
+                        [(ngModel)]="selectedCannotReview"
+                        [data]="cannotReviews"
+                        [textField]="fieldForShow"
+                        [placeHolder]="'Select one'"
+                        (ngModelChange)="cannotReviewSelected();">
+                    </lsu-dropdown>
+                    <lsu-modal [(ngModel)]="cannotReviewModal" [options]="modalOptions">
+                        <h2 class="ui icon header">
+                            <i class="warning sign icon"></i>
+                        </h2>
+                        <div class="image content">
                             Are you sure that the chart and claims cannot be reviewed?
-                        </modal-content>
-                        <modal-actions>
+                        </div>
+                        <div class="actions">
                             <div class="ui button primary">
-                                <div class="" (click)="registerCannotReview($event); myModalNormal.hide();">Yes</div>
+                                <div class="" (click)="registerCannotReview($event); cancelCannotReviewModal();">Yes</div>
                             </div>
                             <div class="ui button">
-                                <div class="" (click)="reloadCannotReview(); myModalNormal.hide()">Cancel</div>
+                                <div class="" (click)="reloadCannotReview(); cancelCannotReviewModal()">Cancel</div>
                             </div>
-                        </modal-actions>
-                    </sm-modal>
+                        </div>
+                    </lsu-modal>
                 </div>
             </div>
         </div>

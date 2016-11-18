@@ -130,7 +130,6 @@ export class DXCodesComponent implements OnInit {
         comment: _comment == null ? "" : _comment,
         invalid: false
       };
-      console.log("Correct dxclaim");
       this._dxcodeService.addDxCode(dxCodeContent)
           .then(res => {
             if (res.flag) {

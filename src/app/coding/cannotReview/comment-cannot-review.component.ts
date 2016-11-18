@@ -10,8 +10,11 @@ import { CommentCannotReviewService } from './comment-cannot-review.service';
 })
 export class CommentCannotReviewComponent implements OnInit {
     private cannotReviews: any[];
-    private selectedId: number;
+    private selectedCannotReview: any = "";
     private chartComment: string;
+    private fieldForShow: string;
+    private cannotReviewModal: boolean;
+    private modalOptions: any;
     @Output('getNextChart') loadNextChart = new EventEmitter();
 
     constructor(
@@ -21,7 +24,7 @@ export class CommentCannotReviewComponent implements OnInit {
         ) {
         this.cannotReviews = [];
         this.chartComment = "";
-        this.selectedId = 0;
+        this.cannotReviewModal = false;
     }
 
     private loadCommentCannotReview(): void {
@@ -33,7 +36,12 @@ export class CommentCannotReviewComponent implements OnInit {
 
     ngOnInit(): void {
         this.loadCommentCannotReview();
-        (<any>$('.ui.dropdown')).dropdown();
+        this.fieldForShow = "statement";
+        this.modalOptions = {
+            "size": "small",
+            "type": "default",
+            "closeable": true
+        }
     }
 
     saveComment() {
@@ -48,15 +56,16 @@ export class CommentCannotReviewComponent implements OnInit {
             });
     }
 
-    holdCannotReview(event, cr): void {
-        event.stopPropagation();
-        this.selectedId = cr.id == "" ? 0 : parseInt(cr.id);
+    cannotReviewSelected() {
+        if (this.selectedCannotReview) {
+            this.cannotReviewModal = true;
+        }
     }
 
     registerCannotReview(event) {
         event.stopPropagation();
         var crComponent = {
-            reasonId: this.selectedId,
+            reasonId: this.selectedCannotReview.id,
             id: localStorage.getItem('chartId')
         }
         this._commentCannotReviewService.postCannotReview(crComponent)
@@ -64,18 +73,22 @@ export class CommentCannotReviewComponent implements OnInit {
                 if (res.flag) {
                     this._toastr.success("Review has been registered.")
                     this.loadNextChart.emit({'newChart': true});
+                } else {
+                    this._toastr.error("Problem encountered during cannot review registration");
                 }
             });
     }
 
+    cancelCannotReviewModal() {
+        this.cannotReviewModal = false;
+    }
+
     reloadCannotReview() {
-        this.selectedId = 0;
-        // (<any>$('.ui.dropdown')).dropdown('restore defaults');
+        this.selectedCannotReview = "";
         this.loadCommentCannotReview();
     }
 
     nextChart($event) {
-        console.log("commentCannotReview");
         this.reloadCannotReview();
     }
 }

@@ -162,7 +162,6 @@ export class ClaimsComponent implements OnInit {
     }
 
     codingComplete(event, reload) {
-        console.log(reload);
         event.stopPropagation();
         this._claimService.codingComplete()
             .then(res => {
