@@ -5,7 +5,7 @@ export class DateLib {
          * Convert yyyy-mm-dd to mm/dd/yyyy
          */
         dateString = dateString.split('-');
-        dateString = dateString[1] + "/" + dateString[2]  + "-" + dateString[0];
+        dateString = dateString[1] + "/" + dateString[2]  + "/" + dateString[0];
         return dateString;
     }
 
