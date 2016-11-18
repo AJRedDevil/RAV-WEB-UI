@@ -77,43 +77,44 @@
     </div>
     <div class="completion-section clearfix">
         <div>
-            <button class="btn btn-success" (click)="codingCompeleteModal.show({blurring: true});">
+            <button class="btn btn-success" (click)="showCodingCompeleteModal()">
               <span class="icon-checkmark"></span>Coding complete
             </button>
-            <sm-modal
-                title="Coding Complete"
-                icon="checkmark"
-                #codingCompeleteModal>
-                <modal-content>
+            <lsu-modal [(ngModel)]="codingCompleteModal" [options]="modalOptions">
+                <h2 class="ui icon header">
+                    <i class="checkmark icon"></i>
+                </h2>
+                <div class="image content">
                     Are you sure coding is complete?
-                </modal-content>
-                <modal-actions>
+                </div>
+                <div class="actions">
                     <div class="ui positive basic button">
-                        <div class="" (click)="codingCompeleteModal.hide(); codingComplete($event, false);">YES</div>
+                        <div class="" (click)="codingCompeleteCancel(); codingComplete($event, false);">YES</div>
                     </div>
                     <div class="ui negative basic button">
-                        <div class="" (click)="codingCompeleteModal.hide()">NO</div>
+                        <div class="" (click)="codingCompeleteCancel()">NO</div>
                     </div>
-                </modal-actions>
-            </sm-modal>
-            <button class="btn btn-warn" (click)="saveForLaterModal.show({blurring: true})">
+                </div>
+            </lsu-modal>
+            <button class="btn btn-warn" (click)="showSaveForLaterModal()">
               <span class="icon-later"></span>Save for later
             </button>
-            <sm-modal
-                title="Save For Later"
-                icon="save"
-                #saveForLaterModal>
-                <modal-content>
-                </modal-content>
-                <modal-actions>
+            <lsu-modal [(ngModel)]="saveForLaterModal" [options]="modalOptions">
+                <h2 class="ui icon header">
+                    <i class="save icon"></i>
+                </h2>
+                <div class="image content">
+                        Save For Later
+                </div>
+                <div class="actions">
                     <div class="ui positive basic button">
-                        <div class="" (click)="saveForLaterModal.hide(); saveForLater($event, false);">YES</div>
+                        <div class="" (click)="saveForLaterCancel(); saveForLater($event, false);">YES</div>
                     </div>
                     <div class="ui negative basic button">
-                        <div class="" (click)="saveForLaterModal.hide()">NO</div>
+                        <div class="" (click)="saveForLaterCancel()">NO</div>
                     </div>
-                </modal-actions>
-            </sm-modal>
+                </div>
+            </lsu-modal>
         </div>
         <div>
             <button
