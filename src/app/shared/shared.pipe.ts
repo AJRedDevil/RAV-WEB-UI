@@ -22,13 +22,3 @@ export class ConvertNullToEmptyString{
     return value;
 	}
 }
-
-@Pipe({
-	name : "convertTommddyyyy"
-})
- 
-export class ConvertTommddyyyy{
-	transform(value){
-    return DateLib.convertTommddyyyy(value);
-	}
-}

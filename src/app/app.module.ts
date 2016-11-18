@@ -25,7 +25,7 @@ import { routing } from './app.routes'
 import { AuthService } from './login/auth.service';
 import { AuthGuard } from './login/auth-guard.service';
 
-import { SafePipe, ConvertNullToEmptyString, ConvertTommddyyyy } from './shared/shared.pipe';
+import { SafePipe, ConvertNullToEmptyString } from './shared/shared.pipe';
 
 
 let toastOptions = <ToastOptions> {
@@ -60,8 +60,7 @@ let toastOptions = <ToastOptions> {
         MemberInfoComponent,
         LoginComponent,
         SafePipe,
-        ConvertNullToEmptyString,
-        ConvertTommddyyyy
+        ConvertNullToEmptyString
     ],
     providers: [
         AuthService,
