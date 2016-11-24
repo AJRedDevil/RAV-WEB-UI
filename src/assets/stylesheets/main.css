@@ -698,37 +698,49 @@ pre code, table {
     border-top: 0;
 }
 
-.claim-wrap .table > thead:first-child > tr > th:nth-child(1),
+.claim-wrap .table > thead:first-child > tr > th:nth-child(1){
+    width: 6%;
+}
+.claim-wrap .table > thead:first-child > tr > th:nth-child(2){
+    width: 30%;
+}
+.claim-wrap .table > thead:first-child > tr > th:nth-child(3){
+    width: 10%;
+}
+.claim-wrap .table > thead:first-child > tr > th:nth-child(4) {
+    width: 20%;
+}
+.claim-wrap .table > thead:first-child > tr > th:nth-child(5) {
+    width: 10%;
+}
+.claim-wrap .table > thead:first-child > tr > th:nth-child(6) {
+    width: 12%;
+}
+.claim-wrap .table > thead:first-child > tr > th:nth-child(7) {
+    width: 12%;
+}
+
+
 .cpt-wrap .table > thead:first-child > tr > th:nth-child(1){
     width: 6%;
 }
-
-.claim-wrap .table > thead:first-child > tr > th:nth-child(2){
-    width: 10%;
-}
-
 .cpt-wrap .table > thead:first-child > tr > th:nth-child(2){
-    width: 11%;
+    width: 39%;
 }
-
-.claim-wrap .table > thead:first-child > tr > th:nth-child(3),
 .cpt-wrap .table > thead:first-child > tr > th:nth-child(3) {
-    width: 25%;
+    width: 31%;
 }
-
-.claim-wrap .table > thead:first-child > tr > th:nth-child(4) {
-    width: 10%;
-}
-
 .cpt-wrap .table > thead:first-child > tr > th:nth-child(4) {
-    width: 38%;
+    width: 24%;
 }
 
-.claim-wrap .table > thead:first-child > tr > th:nth-child(5) {
-    width: 18%;
+.claim-wrap .table > tbody > tr > td:nth-child(2) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.cpt-wrap .table > tbody > tr > td:nth-child(4) {
+.cpt-wrap .table > tbody > tr > td:nth-child(2) {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1235,16 +1247,16 @@ button.icon [class*=" icon-"] {
 }
 
 .add-claim-section .ui.form .fields>.field:first-child {
-    width: 25%;
+    width: 65%;
 }
 
 
 .add-claim-section .ui.form .fields:last-child .field:nth-child(2) {
-    width: 60%;
+    width: 40%;
 }
 
 .add-claim-section .ui.form .fields:last-child .field:nth-child(3) {
-    width: 40%;
+    width: 10%;
 }
 
 .add-claim-section .ui.form input[type=text] {

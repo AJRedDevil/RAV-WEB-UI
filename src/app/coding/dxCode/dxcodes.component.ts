@@ -33,6 +33,7 @@ export class DXCodesComponent implements OnInit {
   private _selectedDxId = -1;
   private _selectedDxCode = "";
   private _selectedDxDesc = "";
+  private _selectedDxCodeDesc = "";
   private dxcodeCss: Array<DxCodeCss> = [];
   private reasons: Reasons[];
 
@@ -43,7 +44,6 @@ export class DXCodesComponent implements OnInit {
     private _toastr: ToastsManager) {
       this.addDxCodeForm = _fb.group({
         dxcode: ['', Validators.required],
-        description: ['', Validators.required],
         comment: ['']
       });
   }
@@ -111,13 +111,10 @@ export class DXCodesComponent implements OnInit {
 
   addDxCode() {
     if (this._selectedDxId < 0 || this._selectedDxCode == "" || this._selectedDxDesc == "" ||
-        this._selectedDxCode != this.addDxCodeForm.controls['dxcode'].value ||
-        this._selectedDxDesc != this.addDxCodeForm.controls['description'].value) {
+        this._selectedDxCodeDesc == "" ||
+        this._selectedDxCodeDesc != this.addDxCodeForm.controls['dxcode'].value) {
       this._selectedDxId = -1;
       this.addDxCodeForm.controls['dxcode'].setErrors({
-        required: true
-      })
-      this.addDxCodeForm.controls['description'].setErrors({
         required: true
       })
     } else {
@@ -210,41 +207,14 @@ export class DXCodesComponent implements OnInit {
                     description: 'dxDesc'
                 },
                 onSelect: function(result, response) {
-                  self.addDxCodeForm.patchValue({dxcode: result.dxCode});
-                  self.addDxCodeForm.patchValue({description: result.dxDesc});
+                  self.addDxCodeForm.patchValue({dxcode: result.dxCombined});
                   self._selectedDxId = result.id;
                   self._selectedDxCode = result.dxCode;
                   self._selectedDxDesc = result.dxDesc;
+                  self._selectedDxCodeDesc = result.dxCombined;
+                  return false;
                 },
                 minCharacters : 2
-            });
-    (<any>$('.ui.search.dxdescription'))
-            .search({
-                apiSettings: {
-                    url: DXDESC_SEARCH_URL,
-                    method: 'POST',
-                    beforeXHR: function(xhr) {
-                      xhr.setRequestHeader('Content-type', 'application/json');
-                      return xhr;
-                    },
-                    beforeSend: (settings) => {
-                      settings.data = JSON.stringify({query: event.target.value});
-                      return settings
-                    }
-                },
-                fields: {
-                  results : 'dxCodeList',
-                  title   : 'dxDesc',
-                  description: 'dxCode'
-                },
-                onSelect: function(result, response) {
-                  self.addDxCodeForm.patchValue({dxcode: result.dxCode});
-                  self.addDxCodeForm.patchValue({description: result.dxDesc});
-                  self._selectedDxId = result.id;
-                  self._selectedDxCode = result.dxCode;
-                  self._selectedDxDesc = result.dxDesc;
-                },
-                minCharacters : 1
             });
   }
 

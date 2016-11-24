@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 import { ToastModule, ToastOptions } from "ng2-toastr/ng2-toastr";
 import { NgSemanticModule } from 'ng-semantic';
 import { L_SEMANTIC_UI_MODULE } from 'angular2-semantic-ui';
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
+
+import { MomentModule } from 'angular2-moment';
 
 import { AppComponent }   from './app.component';
 import { MainComponent } from './home/main.component';
@@ -45,7 +48,9 @@ let toastOptions = <ToastOptions> {
         routing,
         ToastModule.forRoot(toastOptions),
         NgSemanticModule,
-        L_SEMANTIC_UI_MODULE
+        L_SEMANTIC_UI_MODULE,
+        MomentModule,
+        NgIdleKeepaliveModule.forRoot()
     ],
     declarations: [
         AppComponent,

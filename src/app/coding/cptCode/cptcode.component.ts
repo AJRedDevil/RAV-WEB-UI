@@ -26,7 +26,7 @@ export class CPTCodesComponent{
   cptcodes: Array<CPTCode> = [];
   private addCptCodeForm: FormGroup;
   private _selectedCptxId = -1;
-  private _selectedModifierId = -1;
+  // private _selectedModifierId = -1;
   private cptcodeCss: Array<CptCodeCss> = [];
 
   constructor(
@@ -146,70 +146,15 @@ export class CPTCodesComponent{
                 },
                 fields: {
                     results : 'cptCodeList',
-                    title   : 'cptCode'
+                    title   : 'cptCode',
+                    description: 'cptDesc'
                 },
                 onSelect: function(result, response) {
-                  self.addCptCodeForm.patchValue({cptcode: result.cptCode});
-                  self.addCptCodeForm.patchValue({description: result.cptDesc});
+                  self.addCptCodeForm.patchValue({cptcode: result.cptCombined});
                   self._selectedCptxId = result.id;
+                  return false
                 },
                 minCharacters : 2
-            });
-    (<any>$('.ui.search.cptdescription'))
-            .search({
-                apiSettings: {
-                    url: CPTDESC_SEARCH_URL,
-                    method: 'POST',
-                    beforeXHR: function(xhr) {
-                      xhr.setRequestHeader('Content-type', 'application/json');
-                      return xhr;
-                    },
-                    beforeSend: (settings) => {
-                      settings.data = JSON.stringify({query: event.target.value});
-                      return settings
-                    }
-                },
-                fields: {
-                    results : 'cptCodeList',
-                    title   : 'cptDesc'
-                },
-                onSelect: function(result, response) {
-                  self.addCptCodeForm.patchValue({cptcode: result.cptCode});
-                  self.addCptCodeForm.patchValue({description: result.cptDesc});
-                  self._selectedCptxId = result.id;
-                },
-                minCharacters : 1
-            });
-  }
-
-  // (keyup)="searchModifier($event)"
-  searchModifier(event) {
-    var self = this;
-    event.stopPropagation();
-    var MODIFIER_SEARCH_URL = localStorage.getItem('baseUrl') + '/search/modifier/';
-    (<any>$('.ui.search.modifiers'))
-            .search({
-                apiSettings: {
-                    url: MODIFIER_SEARCH_URL,
-                    method: 'POST',
-                    beforeXHR: function(xhr) {
-                      xhr.setRequestHeader('Content-type', 'application/json');
-                      return xhr;
-                    },
-                    beforeSend: (settings) => {
-                      settings.data = JSON.stringify({query: event.target.value});
-                      return settings
-                    }
-                },
-                fields: {
-                    results : 'modifiers',
-                    title   : 'modifier'
-                },
-                onSelect: function(result, response) {
-                  self.addCptCodeForm.patchValue({modifiers: result.modifiers});
-                  self._selectedModifierId = result.id;
-                },
-                minCharacters : 1
             });
   }
 }

@@ -3,7 +3,6 @@
         <tr>
             <th>#</th>
             <th>DX Code</th>
-            <th>Description</th>
             <th>HCC</th>
             <th>Provider Search</th>
             <th>Invalid</th>
@@ -18,8 +17,7 @@
                 {{ sn + 1 }}
                 <!--<b *ngIf="dxcode.insertType == 'New'" color="red">N</b>-->
             </td>
-            <td>{{ dxcode.dxCode.dxCode }}</td>
-            <td>{{ dxcode.dxCode.dxDesc }}</td>
+            <td>{{ dxcode.dxCode.dxCode }} - {{ dxcode.dxCode.dxDesc }}</td>
             <td>{{ dxcode.dxCode.hcc }}</td>
             <td>{{ dxcode.provider.fullName }}</td>
             <td>
@@ -109,24 +107,6 @@
                             class="error"
                             *ngIf="addDxCodeForm.controls.dxcode.touched && _selectedDxId < 0">
                             Required (Select correct dxcode)
-                        </div>
-                        <div class="results"></div>
-                    </div>
-                </div>
-                <div
-                    class="field"
-                    [class.form-error]="addDxCodeForm.controls.description.touched && _selectedDxId < 0">
-                    <div class="ui search dxdescription" [id]="claimId">
-                        <input
-                            class="prompt"
-                            type="text"
-                            placeholder="Enter description"
-                            (keyup)="searchDxCodeDesc($event)"
-                            formControlName="description">
-                        <div
-                            class="error"
-                            *ngIf="addDxCodeForm.controls.description.touched && _selectedDxId < 0">
-                            Required (Select correct description)
                         </div>
                         <div class="results"></div>
                     </div>

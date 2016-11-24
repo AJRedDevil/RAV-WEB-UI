@@ -1,5 +1,7 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import {Observable} from 'rxjs/Rx';
+import { Component, HostListener ,OnInit, ViewChild } from "@angular/core";
+import { Observable } from 'rxjs/Rx';
+
+import { Idle, DEFAULT_INTERRUPTSOURCES } from '@ng-idle/core';
 
 import { ChartComponent } from '../chart/chart.component';
 import { CodingComponent } from '../coding/coding.component'
@@ -14,12 +16,20 @@ export class MainComponent implements OnInit {
     private fullScreen: boolean;
     private reloaded: boolean;
     private chartWindow = null;
+private _timeout = 5*60; // 5 minutes
     @ViewChild(ChartComponent) chart: ChartComponent;
     @ViewChild(CodingComponent) codingComponent: CodingComponent;
 
     // We'll need to include a reference to our authService in the constructor to gain access to the API's in the view
-    constructor(private authService: AuthService) {
-        this.fullScreen = Boolean(localStorage.getItem("fullScreen"));
+    constructor(
+        private authService: AuthService,
+        private _idle: Idle) {
+            _idle.setIdle(this._timeout);
+            _idle.setTimeout(1);
+            _idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
+            _idle.onTimeout.subscribe(() => { this.logout(); });
+            this.fullScreen = Boolean(localStorage.getItem("fullScreen"));
+            this.reset();
     }
 
     ngOnInit() {
@@ -30,6 +40,24 @@ export class MainComponent implements OnInit {
             this.fullScreenSingleton();
         }
         // System.import('assets/js/main.js');
+    }
+
+    logout() {
+        this.closeChartWindow();
+        this.authService.logout();
+    }
+
+    @HostListener('window:beforeunload', [ '$event' ])
+    onBeforeUnloadHandler(event) {
+        this.closeChartWindow();
+    }
+
+    @HostListener('window:unload', [ '$event' ])
+    onUnloadHandler(event) {
+    }
+
+    reset() {
+        this._idle.watch();
     }
 
     getNextChart($event) {

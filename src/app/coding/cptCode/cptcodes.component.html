@@ -3,7 +3,6 @@
         <tr>
             <th>#</th>
             <th>CPT Code</th>
-            <th>Description</th>
             <th>Modifier</th>
             <th>Comment</th>
         </tr>
@@ -14,8 +13,7 @@
             <td>
                 {{ sn + 1 }}
             </td>
-            <td>{{ cptcode.cptCode.cptCode }}</td>
-            <td>{{ cptcode.cptCode.cptDesc }}</td>
+            <td>{{ cptcode.cptCode.cptCode }} - {{ cptcode.cptCode.cptDesc }}</td>
             <td>{{ cptcode.modifiers }}</td>
             <td class="text-left">
                 <button
@@ -62,17 +60,6 @@
                             placeholder="Enter CPT-CODE"
                             (keyup)="searchCptCodeDesc($event)"
                             formControlName="cptcode">
-                        <div class="results"></div>
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="ui search cptdescription" [id]="claimId">
-                        <input
-                            class="prompt"
-                            type="text"
-                            placeholder="Enter description"
-                            (keyup)="searchCptCodeDesc($event)"
-                            formControlName="description">
                         <div class="results"></div>
                     </div>
                 </div>
