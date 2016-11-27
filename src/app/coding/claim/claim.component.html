@@ -26,8 +26,7 @@
 		</div>
 	</div>
 	<div class="claim-title-inner">
-		<h2><small>Claim ID: {{ inputClaim.claimId }} |
-			 DOS:
+		<h2>Claim ID: {{ inputClaim.claimId }} |
             <span
                 id="dos-date"
                 data-type="date"
@@ -35,9 +34,9 @@
                 data-pk="1"
 				class="editable editable-input"
 				(click)="popDosDate(dosDate)">
-                {{ dosDate }}
-            </span>
-			<div class="ui fluid popup top left transition hidden">
+                DOS: {{ dosDate }}
+            </span> |
+			<div class="ui fluid popup bottom center transition hidden">
 				<div class="ui column divided grid">
 					<div class="column">
 						<div class="ui form">
@@ -68,10 +67,9 @@
 					</div>
 				</div>
 			</div>
-             | Coding Date: {{ inputClaim.codingDate }}
+             <span>Coding Date: {{ inputClaim.codingDate }}</span>
 			<span *ngIf="inputClaim.insertType == 'New' && !dosUpdated"  class="new">New</span>
 			<span *ngIf="inputClaim.insertType == 'Changed' || dosUpdated"  class="changed">Changed</span>
-        	</small>
 		</h2>
 	</div>
 	<div class="add-section">
@@ -80,7 +78,6 @@
 				<input
                     type="checkbox"
                     name="example"
-                    tabindex="0"
                     class="hidden"
                     (change)="registerClaimReview($event)"
                     [checked]="inputClaim.reviewed"/>
