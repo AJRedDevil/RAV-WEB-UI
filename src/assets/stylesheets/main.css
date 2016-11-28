@@ -713,12 +713,9 @@ pre code, table {
     width: 20%;
 }
 .claim-wrap .table > thead:first-child > tr > th:nth-child(5) {
-    width: 10%;
-}
-.claim-wrap .table > thead:first-child > tr > th:nth-child(6) {
     width: 12%;
 }
-.claim-wrap .table > thead:first-child > tr > th:nth-child(7) {
+.claim-wrap .table > thead:first-child > tr > th:nth-child(6) {
     width: 12%;
 }
 
@@ -1007,7 +1004,6 @@ button.icon [class*=" icon-"] {
 .fullscreen .claim-wrap .label, 
 .fullscreen .cpt-wrap .label {
     position: absolute;
-    top: 0;
     background: #ea2828;
     color: #fff;
     padding: 0px 15px;
@@ -1183,18 +1179,18 @@ button.icon [class*=" icon-"] {
     margin-right: 0;
 }
 
-.text-left .ui.labeled.icon.button.is-selected{
+/*.text-left .ui.labeled.icon.button.is-selected{
     background: #43bf80;
-}
+}*/
 
 .text-left .ui.labeled.icon.button.is-selected .fa-list{
     color: #fff;
 }
 
-.text-left .ui.labeled.icon.button .fa {
+/*.text-left .ui.labeled.icon.button .fa {
     color: #0cc2aa;
     font-size: 14px;
-}
+}*/
 
 .text-left .labeled.icon.button .fa.fa-search{
     position: absolute;

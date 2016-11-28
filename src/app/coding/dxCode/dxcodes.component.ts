@@ -1,9 +1,10 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
+import { Component, Input, OnInit, ViewChildren } from "@angular/core";
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 import { DXCode, Reasons } from "./dxcode.model";
 import { DxCodeService } from './dxcode.service';
+import { DropdownDirective } from '../../shared/directives/dropdown';
 
 class DxCodeCss {
   reasonClass = "";
@@ -36,12 +37,11 @@ export class DXCodesComponent implements OnInit {
   private _selectedDxCodeDesc = "";
   private dxcodeCss: Array<DxCodeCss> = [];
   private reasons: Reasons[];
-  @ViewChild('dxdropdown') dxdropdown;
+  @ViewChildren(DropdownDirective) allDxDropdown;
 
   constructor(
     private _dxcodeService: DxCodeService,
     private _fb: FormBuilder,
-    private _elementRef: ElementRef,
     private _toastr: ToastsManager) {
       this.addDxCodeForm = _fb.group({
         dxcode: ['', Validators.required],
@@ -229,12 +229,16 @@ export class DXCodesComponent implements OnInit {
         .then(res => {
           if (res.flag) {
             this.reloadDxCodes();
+            this._toastr.success("DxCode has been registered as invalid.");
+          } else {
+            this._toastr.error("Error while registering invalid DxCode.");
           }
         });
   }
   
   onClickedOutside(e: Event) {
-    console.log(e.target);
-    this.dxdropdown.close = false;
+    this.allDxDropdown.forEach(element => {
+      element.registerClick = e;
+    });
   }
 }

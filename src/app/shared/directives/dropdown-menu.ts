@@ -9,7 +9,6 @@ export class DropdownMenuDirective {
     private _service: DropdownService;
 
     public set service(service: DropdownService) {
-        console.log("active menu");
         this._service = service;
     }
     

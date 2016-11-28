@@ -3,7 +3,8 @@ import {
     HostBinding,
     HostListener,
     ContentChild,
-    AfterContentInit
+    AfterContentInit,
+    ElementRef
 } from '@angular/core';
 
 import { DropdownMenuDirective } from './dropdown-menu';
@@ -13,35 +14,41 @@ import { DropdownService } from './dropdown-service';
   selector: '[ravDropdown]',
   exportAs:'ravDropdown' 
 })
-class DropdownDirective implements AfterContentInit{
+export class DropdownDirective implements AfterContentInit{
     protected _service: DropdownService;
     @ContentChild(DropdownMenuDirective) protected _menu: DropdownMenuDirective;
+
+    private toggle() {
+        this._service.isOpen = !this._service.isOpen
+    }
 
     @HostBinding('class.active') get active() {
         return this._service.isOpen;
     }
+    
     @HostBinding('class.visible') get visible() {
         return this._service.isOpen;
     }
-    @HostListener('click') open() 
-    {
-        console.log("clicked");
-        this._service.isOpen = true;
+
+    @HostListener('click', ['$event'])
+    private open(event) {
+        event.stopPropagation()
+        this.toggle();
     }
-    // @HostListener('mouseleave') inActive() {
-    //     console.log("close");
-    //     this._service.isOpen = false;
-    // }
-    public set close(close: boolean) {
-        this._service.isOpen = close;
+
+    public set registerClick(event: Event) {
+        if (this.elemRef.nativeElement.contains(event.target)) {
+            this.toggle();
+        } else {
+            this._service.isOpen = false;
+        }
     }
     
     ngAfterContentInit():void {
-        console.log("ngAfterContentInit");
         this._menu.service = this._service;
     }
 
-    constructor() {
+    constructor(private elemRef: ElementRef) {
         this._service = new DropdownService();
     }
 

@@ -5,14 +5,14 @@
             <th>DX Code</th>
             <th>HCC</th>
             <th>Provider Search</th>
-            <th>Invalid</th>
+            <!--<th>Invalid</th>-->
             <th>Comment</th>
-            <th>Reason</th>
+            <th>Invalid</th>
         </tr>
     </thead>
     <tbody *ngFor="let dxcode of dxcodes; let sn = index">
         <!-- https://github.com/angular/angular/issues/5967 -->
-        <tr>
+        <tr [class.light-red]="dxcode.reasonId!=0">
             <td>
                 {{ sn + 1 }}
                 <!--<b *ngIf="dxcode.insertType == 'New'" color="red">N</b>-->
@@ -20,7 +20,7 @@
             <td>{{ dxcode.dxCode.dxCode }} - {{ dxcode.dxCode.dxDesc }}</td>
             <td>{{ dxcode.dxCode.hcc }}</td>
             <td>{{ dxcode.provider.fullName }}</td>
-            <td>
+            <!--<td>
                 <div class="ui checkbox">
                     <input
                         type="checkbox"
@@ -29,7 +29,7 @@
                         (change)="registerInvalid(dxcode)">
                     <label></label>
                 </div>
-            </td>
+            </td>-->
             <td class="text-left">
                 <button
                     type="button"
@@ -43,28 +43,30 @@
             <td class="text-left">
                 <button
                     type="button"
-                    class="icon show-message" [class.is-selected]="dxcode.reasonId!=0">
+                    class="icon show-message">
                     <div
                         class="ui floating labeled dropdown"
                         [class.is-selected]="dxcode.reasonId!=0"
                         (clickOutside)="onClickedOutside($event)"
                         #dxdropdown=ravDropdown
                         ravDropdown>
-                        <i class="fa fa-list activateDropdown"></i>
-                        <div class="menu transition" ravDropdownMenu>
-                            <div class="icon search input">
-                                <input type="text" placeholder="Search tags...">
-                            </div>
-                            <div class="divider"></div>
+                        <i
+                            class="fa activateDropdown"
+                            aria-hidden="true"
+                            [class.fa-square-o]="dxcode.reasonId == 0"
+                            [class.fa-check-square]="dxcode.reasonId != 0">
+                            </i>
+                        <div class="menu transition" ng-style="{'display': 'block !important';}" ravDropdownMenu>
                             <div class="scrolling menu">
                                 <div
                                     class="item"
                                     *ngFor="let reason of reasons; let reasonid = index"
                                     [class.selected]="reason.id == dxcode.reasonId"
                                     [class.active]="reason.id == dxcode.reasondId"
-                                    (click)="setReason($event, reasonid, dxcode)">
+                                    (click)="setReason($event, reasonid + 1, dxcode)">
                                     <div class="ui grey empty circular label" *ngIf="reason.id == dxcode.reasonId"></div>
                                     {{ reason.statement }}
+                                    <div class="divider"></div>
                                 </div>
                             </div>
                         </div>
