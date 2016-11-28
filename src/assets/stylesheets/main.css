@@ -1204,10 +1204,6 @@ button.icon [class*=" icon-"] {
     margin-bottom: 20px;
 }
 
-.text-left .ui.floating.dropdown .menu .ui.button {
-    width: 505px;
-}
-
 .text-left .ui.floating.dropdown .menu.is-visible {
     display: block !important;
 }
