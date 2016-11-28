@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit } from "@angular/core";
+import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
@@ -36,6 +36,7 @@ export class DXCodesComponent implements OnInit {
   private _selectedDxCodeDesc = "";
   private dxcodeCss: Array<DxCodeCss> = [];
   private reasons: Reasons[];
+  @ViewChild('dxdropdown') dxdropdown;
 
   constructor(
     private _dxcodeService: DxCodeService,
@@ -230,5 +231,10 @@ export class DXCodesComponent implements OnInit {
             this.reloadDxCodes();
           }
         });
+  }
+  
+  onClickedOutside(e: Event) {
+    console.log(e.target);
+    this.dxdropdown.close = false;
   }
 }

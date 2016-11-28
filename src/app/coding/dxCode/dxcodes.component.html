@@ -44,6 +44,35 @@
                 <button
                     type="button"
                     class="icon show-message" [class.is-selected]="dxcode.reasonId!=0">
+                    <div
+                        class="ui floating labeled dropdown"
+                        [class.is-selected]="dxcode.reasonId!=0"
+                        (clickOutside)="onClickedOutside($event)"
+                        #dxdropdown=ravDropdown
+                        ravDropdown>
+                        <i class="fa fa-list activateDropdown"></i>
+                        <div class="menu transition" ravDropdownMenu>
+                            <div class="icon search input">
+                                <input type="text" placeholder="Search tags...">
+                            </div>
+                            <div class="divider"></div>
+                            <div class="scrolling menu">
+                                <div
+                                    class="item"
+                                    *ngFor="let reason of reasons; let reasonid = index"
+                                    [class.selected]="reason.id == dxcode.reasonId"
+                                    [class.active]="reason.id == dxcode.reasondId"
+                                    (click)="setReason($event, reasonid, dxcode)">
+                                    <div class="ui grey empty circular label" *ngIf="reason.id == dxcode.reasonId"></div>
+                                    {{ reason.statement }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </button>
+                <!--<button
+                    type="button"
+                    class="icon show-message" [class.is-selected]="dxcode.reasonId!=0">
                     <sm-dropdown class="floating labeled" [class.is-selected]="dxcode.reasonId!=0">
                         <div class="icon search input">
                             <input type="text" placeholder="Search tags...">
@@ -64,7 +93,7 @@
                             </div>
                         </div>
                     </sm-dropdown>
-                </button>
+                </button>-->
                 <div
                     *ngIf="dxcode.insertType == 'New'"
                     class="label">
