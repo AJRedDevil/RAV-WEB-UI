@@ -6,6 +6,8 @@ import { ToastModule, ToastOptions } from "ng2-toastr/ng2-toastr";
 import { NgSemanticModule } from 'ng-semantic';
 import { L_SEMANTIC_UI_MODULE } from 'angular2-semantic-ui';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
+import { DROPDOWN_DIRECTIVES } from './shared/directives/dropdown';
+import { ClickOutsideModule } from 'ng2-click-outside';
 
 import { MomentModule } from 'angular2-moment';
 
@@ -50,7 +52,8 @@ let toastOptions = <ToastOptions> {
         NgSemanticModule,
         L_SEMANTIC_UI_MODULE,
         MomentModule,
-        NgIdleKeepaliveModule.forRoot()
+        NgIdleKeepaliveModule.forRoot(),
+        ClickOutsideModule
     ],
     declarations: [
         AppComponent,
@@ -65,7 +68,8 @@ let toastOptions = <ToastOptions> {
         MemberInfoComponent,
         LoginComponent,
         SafePipe,
-        ConvertNullToEmptyString
+        ConvertNullToEmptyString,
+        DROPDOWN_DIRECTIVES
     ],
     providers: [
         AuthService,
