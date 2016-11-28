@@ -64,6 +64,7 @@
                     </div>
                 </div>
             </div>
+            <lsu-loader [active]="activeLoader" [loaderText]="loaderText" [loaderSize]="loaderSize"></lsu-loader>
             <div class="card-container">
                 <div class="ui styled accordion">
                     <claim
@@ -73,7 +74,7 @@
                     </claim>
                 </div>
             </div>
-            <h2 *ngIf="claims.length == 0" class="ui center aligned icon header">
+            <h2 *ngIf="!activeLoader && claims.length == 0" class="ui center aligned icon header">
                 <i class="warning sign icon"></i>
                 No Claims/Encounter
             </h2>

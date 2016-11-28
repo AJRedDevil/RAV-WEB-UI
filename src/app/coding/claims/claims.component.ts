@@ -6,6 +6,7 @@ import { Claim } from '../claim/claim.model';
 import { ClaimsService } from './claims.service';
 import { DateValidators } from '../../shared/dateValidators';
 import { DateLib } from '../../shared/dateLibrary';
+import { Utility } from '../../shared/utility';
 
 @Component({
     selector: 'claims',
@@ -24,6 +25,9 @@ export class ClaimsComponent implements OnInit {
     private saveForLaterModal: boolean;
     private nextChartModal: boolean;
     private modalOptions: any;
+    private activeLoader: boolean;
+    private loaderText = "Loading";
+    private loaderSize = "medium";
     @Output('getNextChart') nextChart = new EventEmitter();
 
     constructor(
@@ -43,6 +47,11 @@ export class ClaimsComponent implements OnInit {
             this.isChartComplete = false;
             this.codingCompleteModal = false;
             this.saveForLaterModal = false;
+            this.activeLoader = true;
+    }
+
+    private toggleLoader() {
+        this.activeLoader = !this.activeLoader;
     }
 
     private loadClaims(): void {
@@ -54,6 +63,7 @@ export class ClaimsComponent implements OnInit {
                     if (!element.reviewed && !activeFound) {
                         element.active = true;
                         activeFound = true;
+                        this.activeLoader = false;
                     } else {
                         element.active = false;
                     }
