@@ -241,4 +241,21 @@ export class DXCodesComponent implements OnInit {
       element.registerClick = e;
     });
   }
+
+  private makeItValid(event, dxcode: DXCode) {
+    event.stopPropagation();
+    var dxCodeContent = {
+      id: dxcode.id,
+      reasonId: 0
+    };
+    this._dxcodeService.postReason(dxCodeContent)
+        .then(res => {
+          if (res.flag) {
+            this.reloadDxCodes();
+            this._toastr.success("DxCode has been registered as valid.");
+          } else {
+            this._toastr.error("Error while registering valid DxCode.");
+          }
+        });
+  }
 }

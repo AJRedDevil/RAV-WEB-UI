@@ -57,6 +57,12 @@
                             [class.fa-check-square]="dxcode.reasonId != 0">
                             </i>
                         <div class="menu transition" ng-style="{'display': 'block !important';}" ravDropdownMenu>
+                            <div
+                                class="ui positive button"
+                                *ngIf="dxcode.reasonId != 0"
+                                (click)="makeItValid($event, dxcode)">
+                                Make it Valid
+                            </div>
                             <div class="scrolling menu">
                                 <div
                                     class="item"
@@ -64,7 +70,7 @@
                                     [class.selected]="reason.id == dxcode.reasonId"
                                     [class.active]="reason.id == dxcode.reasondId"
                                     (click)="setReason($event, reasonid + 1, dxcode)">
-                                    <div class="ui grey empty circular label" *ngIf="reason.id == dxcode.reasonId"></div>
+                                    <div class="ui red empty circular label" *ngIf="reason.id == dxcode.reasonId"></div>
                                     {{ reason.statement }}
                                     <div class="divider"></div>
                                 </div>

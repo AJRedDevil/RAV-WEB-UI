@@ -74,6 +74,16 @@ export class DxCodeService {
                    .catch(this.handleError);
     }
 
+    postValid(dxCodeContent): Promise<any> {
+        // dxCodeContent["id"] = localStorage.getItem('loggedInUserId');
+        var baseUrl = localStorage.getItem('baseUrl')
+        var url = `${baseUrl}/dxclaim/setValidState/`;
+        return this._http.post(url, JSON.stringify(dxCodeContent), {headers: this.headers})
+                   .toPromise()
+                   .then(res => res.json())
+                   .catch(this.handleError);
+    }
+
     private handleError (error: any): Promise<any> {
         // in a real world app, we may send the server to some remote logging infrastructure
         // instead of just logging it to the console
