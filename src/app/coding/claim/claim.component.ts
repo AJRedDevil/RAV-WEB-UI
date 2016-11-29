@@ -87,7 +87,7 @@ export class ClaimComponent implements OnInit {
             .then(res => {
                 if (res.flag) {
                     (<any>$('span#dos-date')).popup('hide');
-                    this.dosDate = this.dosForm.controls['dos'].value;
+                    this.dosDate = DateLib.convertTommddyyyy(this.dosForm.controls['dos'].value);
                     this.dosUpdated = true;
                     this._toastr.success("Date of Service Updated");
                 } else {
