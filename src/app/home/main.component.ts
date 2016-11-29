@@ -17,7 +17,7 @@ export class MainComponent implements OnInit {
     private fullScreen: boolean;
     private reloaded: boolean;
     private chartWindow = null;
-private _timeout = 5*60; // 5 minutes
+    private _timeout = 5*60; // 5 minutes
     @ViewChild(ChartComponent) chart: ChartComponent;
     @ViewChild(CodingComponent) codingComponent: CodingComponent;
 
@@ -37,12 +37,12 @@ private _timeout = 5*60; // 5 minutes
     }
 
     ngOnInit() {
-        this.authService.sessionTimeout()
-            .then(res => {
-                if (!res) {
-                    this.authService.logout();
-                }
-            });
+        // this.authService.sessionTimeout()
+        //     .then(res => {
+        //         if (!res) {
+        //             this.authService.logout();
+        //         }
+        //     });
         (<any>$('.maindropdown')).dropdown();
         (<any>$('.ui.accordion')).accordion();
         (<any>$('.ui.checkbox')).checkbox();

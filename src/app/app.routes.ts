@@ -5,6 +5,7 @@ import { AuthGuard } from './login/auth-guard.service';
 import { ChartComponent } from './chart/chart.component'
 import { MainComponent } from './home/main.component';
 import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const appRoutes: Routes = [
   {
@@ -24,6 +25,11 @@ const appRoutes: Routes = [
   {
     path: 'Chart',
     component: ChartComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Dashboard',
+    component: DashboardComponent,
     canActivate: [AuthGuard]
   }
 ];

@@ -8,7 +8,7 @@
 				<!-- <li>
                     <a href="claim_validation_main_full.html">Full View</a>
                 </li> -->
-				<li><a [routerLink]="['/Dashboard']">About</a></li>
+				<li>About</li>
 				<li>Setting</li>
 				<li>
 					<div class="ui inline dropdown maindropdown" tabindex="0">
@@ -17,13 +17,15 @@
 						</div>
 						<i class="dropdown icon" tabindex="0">
                                     <div class="menu" tabindex="-1"></div>
-						</i>
+                                </i>
 						<div class="menu" tabindex="-1">
 							<div class="item">
 								<img class="ui avatar image" src="assets/images/avatar/avatar.jpg"> {{ username }}
 							</div>
 							<div class="item">
-								Dashboard
+								<a [routerLink]="['/Dashboard']">
+									Dashboard
+								</a>
 							</div>
 							<div class="item">
 								My Account
@@ -42,13 +44,4 @@
 		</nav>
 	</div>
 </header>
-<main class="main-container" [class.fullscreen]="fullScreen">
-	<chart
-		class="chart-image"
-		(goFullScreen)="goFullScreen($event)">
-	</chart>
-	<coding
-		class="coding"
-		(getNextChart)="getNextChart($event)">
-	</coding>
-</main>
+<h1>Dashboard</h1>
