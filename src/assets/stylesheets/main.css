@@ -1912,6 +1912,10 @@ button.icon [class*=" icon-"] {
   position: relative;
 }
 
+.cpt-wrap .table {
+    width: 100%;
+}
+
 .claim-wrap .label , .cpt-wrap .label
 {
   position: absolute;
