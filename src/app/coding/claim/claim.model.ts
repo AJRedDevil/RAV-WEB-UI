@@ -5,4 +5,6 @@ export class Claim {
     reviewed: boolean;
     comment: string;
     active: boolean;
+    new: boolean;
+    changed: boolean;
 }

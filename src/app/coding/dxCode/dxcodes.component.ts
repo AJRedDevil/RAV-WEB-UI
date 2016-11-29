@@ -245,10 +245,9 @@ export class DXCodesComponent implements OnInit {
   private makeItValid(event, dxcode: DXCode) {
     event.stopPropagation();
     var dxCodeContent = {
-      id: dxcode.id,
-      reasonId: 0
+      id: dxcode.id
     };
-    this._dxcodeService.postReason(dxCodeContent)
+    this._dxcodeService.postValid(dxCodeContent)
         .then(res => {
           if (res.flag) {
             this.reloadDxCodes();
