@@ -648,7 +648,7 @@ pre code, table {
 }
 
 .table {
-    width: 100%;
+    /*width: 100%;*/
     max-width: 100%;
     margin-bottom: 0;
 }
@@ -966,9 +966,13 @@ button.icon [class*=" icon-"] {
     box-shadow: none;
 }
 
-.fullscreen .cpt-wrap .table > thead:first-child > tr > th:nth-child(2) {
-    width: 41%;
+.fullscreen .cpt-wrap .table {
+    width: 100%;
 }
+
+/*.fullscreen .cpt-wrap .table > thead:first-child > tr > th:nth-child(2) {
+    width: 41%;
+}*/
 
 .fullscreen .table-chart-container .table-card-wrapper .ui.card.claim > .content {
     box-shadow: 0px 1px 1px 1px #b1b1b1 !important;

@@ -27,7 +27,7 @@ export class ClaimsComponent implements OnInit {
     private modalOptions: any;
     private activeLoader: boolean;
     private loaderText = "Loading";
-    private loaderSize = "medium";
+    private loaderSize = "mini";
     @Output('getNextChart') nextChart = new EventEmitter();
 
     constructor(
