@@ -77,7 +77,7 @@ export class DxCodeService {
     postValid(dxCodeContent): Promise<any> {
         // dxCodeContent["id"] = localStorage.getItem('loggedInUserId');
         var baseUrl = localStorage.getItem('baseUrl')
-        var url = `${baseUrl}/dxclaim/setValidState/`;
+        var url = `${baseUrl}/dxclaim/validateDxState/`;
         return this._http.post(url, JSON.stringify(dxCodeContent), {headers: this.headers})
                    .toPromise()
                    .then(res => res.json())
