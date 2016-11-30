@@ -30,6 +30,7 @@ import { routing } from './app.routes'
 
 import { AuthService } from './login/auth.service';
 import { AuthGuard } from './login/auth-guard.service';
+import { DashboardService } from './dashboard/dashboard.service'
 
 import { SafePipe, ConvertNullToEmptyString } from './shared/shared.pipe';
 
@@ -75,7 +76,8 @@ let toastOptions = <ToastOptions> {
     ],
     providers: [
         AuthService,
-        AuthGuard
+        AuthGuard,
+        DashboardService
     ],
     bootstrap: [
         AppComponent

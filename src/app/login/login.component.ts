@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
         this._service.login(this.user)
             .then(res => {
                 if (res){
-                    this._router.navigate(['Home']);
+                    window.location.reload();
+                    this._router.navigate(['Home'])
                 } else{
                     this.errorMsg = 'Failed to login';
                 }
