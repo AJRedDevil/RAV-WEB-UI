@@ -14,9 +14,11 @@ export class DashboardService {
     private _http: Http) {}
  
   getDashboardStats(): Promise<any> {
+
+    var userContent = {"id": localStorage.getItem("loggedInUserId")}
     var baseUrl = localStorage.getItem('baseUrl')
-    var url = `${baseUrl}/dashboard/stats/`;
-    return this._http.post(url, {headers: this.headers})
+    var url = `${baseUrl}/dashboard/summary/`;
+    return this._http.post(url, JSON.stringify(userContent),{headers: this.headers})
               .toPromise()
               .then( res => {
                   return res.json()

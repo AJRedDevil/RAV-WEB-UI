@@ -23,9 +23,11 @@ export class DashboardComponent implements OnInit {
     }
 
     ngOnInit() {
-        // this.dashboardService.getDashboardStats()
-        //                      .then(res => this.dashboardStats = res); // this.dashboardStats = res.get('data') // if the response is sent in json obj.
-        this.dashboardStats = [1,2,3,4,5,6,7,8,9,10,11,12];
+        this.dashboardService.getDashboardStats()
+                             .then(res => this.dashboardStats = res);
+        // if the response is sent in json obj.
+        //this.dashboardStats = res.get('data') 
+        //this.dashboardStats = [1,2,3,4,5,6,7,8,9,10,11,12];
         
         // this.dashboardService.getUserStats()
         //                      .then(res => this.userStats = res);
