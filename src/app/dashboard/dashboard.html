@@ -15,53 +15,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Total number of Completed</td>
-        <td>{{ dashboardStats[0] }}</td>
-      </tr>
-      <tr>
-        <td>Total Number of Saved for later</td>
-        <td>{{ dashboardStats[1] }}</td>
-      </tr>
-      <tr>
-        <td>Total in Progress</td>
-        <td>{{ dashboardStats[2] }}</td>
-      </tr>
-      <tr>
-        <td>Total Charts that cannot be reviewed</td>
-        <td>{{ dashboardStats[3] }}</td>
-      </tr>
-      <tr>
-        <td>Total no. of Claims/Encounters</td>
-        <td>{{ dashboardStats[4] }}</td>
-      </tr>
-      <tr>
-        <td>Total Claims Reviewed</td>
-        <td>{{ dashboardStats[5] }}</td>
-      </tr>
-      <tr>
-        <td>Total no. of Claims/Encounters added</td>
-        <td>{{ dashboardStats[6] }}</td>
-      </tr>
-      <tr>
-        <td>Total Dx Codes</td>
-        <td>{{ dashboardStats[7] }}</td>
-      </tr>
-      <tr>
-        <td>Total Invalid Dx Codes</td>
-        <td>{{ dashboardStats[8] }}</td>
-      </tr>
-      <tr>
-        <td>Total Dx Code Added</td>
-        <td>{{ dashboardStats[9] }}</td>
-      </tr>
-      <tr>
-        <td>Total Cpt Codes</td>
-        <td>{{ dashboardStats[10] }}</td>
-      </tr>
-      <tr>
-        <td>Total Cpt Codes Added</td>
-        <td>{{ dashboardStats[11] }}</td>
+      <tr *ngFor="let dashboardStat of dashboardStats">
+        <td>{{ dashboardStat.label }}</td>
+        <td>{{ dashboardStat.value }}</td>
       </tr>
     </tbody>
   </table>

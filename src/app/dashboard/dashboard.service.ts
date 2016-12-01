@@ -14,9 +14,10 @@ export class DashboardService {
     private _http: Http) {}
  
   getDashboardStats(): Promise<any> {
+    var user = {id: localStorage.getItem('loggedInUserId')};
     var baseUrl = localStorage.getItem('baseUrl')
-    var url = `${baseUrl}/dashboard/stats/`;
-    return this._http.post(url, {headers: this.headers})
+    var url = `${baseUrl}/dashboard/summary/`;
+    return this._http.post(url, JSON.stringify(user), {headers: this.headers})
               .toPromise()
               .then( res => {
                   return res.json()
@@ -25,9 +26,10 @@ export class DashboardService {
   }
 
   getUserStats(): Promise<any> {
+      var user = {id: localStorage.getItem('loggedInUserId')};
     var baseUrl = localStorage.getItem('baseUrl')
-    var url = `${baseUrl}/dashboard/userstats/`;
-    return this._http.post(url, {headers: this.headers})
+    var url = `${baseUrl}/dashboard/summary/user/`;
+    return this._http.post(url, JSON.stringify(user), {headers: this.headers})
               .toPromise()
               .then( res => {
                   return res.json()
