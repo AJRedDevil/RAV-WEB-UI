@@ -22,6 +22,7 @@ import { DXCodesComponent } from './coding/dxCode/dxcodes.component';
 import { CPTCodesComponent } from './coding/cptCode/cptcode.component';
 import { MemberInfoComponent } from './coding/memberInfo/member-info.component';
 import { CommentCannotReviewComponent } from './coding/cannotReview/comment-cannot-review.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { LoginComponent } from './login/login.component'
 
@@ -29,6 +30,7 @@ import { routing } from './app.routes'
 
 import { AuthService } from './login/auth.service';
 import { AuthGuard } from './login/auth-guard.service';
+import { DashboardService } from './dashboard/dashboard.service'
 
 import { SafePipe, ConvertNullToEmptyString } from './shared/shared.pipe';
 
@@ -69,11 +71,13 @@ let toastOptions = <ToastOptions> {
         LoginComponent,
         SafePipe,
         ConvertNullToEmptyString,
-        DROPDOWN_DIRECTIVES
+        DROPDOWN_DIRECTIVES,
+        DashboardComponent
     ],
     providers: [
         AuthService,
-        AuthGuard
+        AuthGuard,
+        DashboardService
     ],
     bootstrap: [
         AppComponent

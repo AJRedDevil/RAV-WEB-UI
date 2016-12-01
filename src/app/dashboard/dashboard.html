@@ -1,0 +1,50 @@
+<!--<div class="ui centered grid" id="main-header">
+	<div class="computer only row">
+		<div class="column">
+      <span class="ui header">Project Name</span>
+		</div>
+	</div>
+</div>-->
+
+<div *ngIf="dashboardStats.length != 0">
+  <table class="ui basic table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dashboardStat of dashboardStats">
+        <td>{{ dashboardStat.label }}</td>
+        <td>{{ dashboardStat.value }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="userStats.length != 0">
+  <table class="ui basic table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>#Charts Completed</th>
+        <th>#In Progress</th>
+        <th>#Claims Reviewed</th>
+        <th>#Claims Reviewed</th>
+        <th>#Dx Reviewed</th>
+        <th>#Dx Invalid</th>
+        <th>#Dx Added</th>
+        <th>#Cpt</th>
+        <th>#Cpt Added</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let userStat of userStats">
+        <td *ngFor="let stat of userStat">
+          {{ stat }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
