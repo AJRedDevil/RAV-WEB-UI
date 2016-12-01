@@ -26,7 +26,7 @@ export class DashboardService {
   }
 
   getUserStats(): Promise<any> {
-      var user = {id: localStorage.getItem('loggedInUserId')};
+    var user = {id: localStorage.getItem('loggedInUserId')};
     var baseUrl = localStorage.getItem('baseUrl')
     var url = `${baseUrl}/dashboard/summary/user/`;
     return this._http.post(url, JSON.stringify(user), {headers: this.headers})

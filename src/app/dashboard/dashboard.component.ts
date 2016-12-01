@@ -26,17 +26,21 @@ export class DashboardComponent implements OnInit {
     ngOnInit() {
         this.dashboardLabels = [
             "Total number of Charts",
+            "Total number of Assigned Charts",
             "Total number of Completed",
             "Total Number of Saved for later",
-            "Total in Progress",
-            "Total Charts that cannot be reviewed",
+            "Total number of Cannot Review",
+            "Total number of Active Charts",
             "Total no. of Claims/Encounters",
             "Total Claims Reviewed",
-            "Total no. of Claims/Encounters added",
+            "Total new Claims",
+            "Total changed Claims",
             "Total Dx Codes",
+            "Total Distinct Dx Codes",
             "Total Invalid Dx Codes",
             "Total Dx Code Added",
             "Total Cpt Codes",
+            "Total Distinct Cpt Codes",
             "Total Cpt Codes Added"
         ]
         this.dashboardService.getDashboardStats()
@@ -53,8 +57,8 @@ export class DashboardComponent implements OnInit {
                              });
         // this.dashboardStats = [1,2,3,4,5,6,7,8,9,10,11,12,13];
         
-        this.dashboardService.getUserStats()
-                             .then(res => this.userStats = res['data']);
+        // this.dashboardService.getUserStats()
+        //                      .then(res => this.userStats = res['data']);
         // this.userStats = [
         //     ['user1',1,2,3,4,5,6,7,8,9],
         //     ['user2',10,20,30,40,50,60,70,80,90]
