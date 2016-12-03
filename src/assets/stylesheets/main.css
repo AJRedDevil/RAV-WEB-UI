@@ -225,6 +225,7 @@ button, input, select, textarea {
 
 .chart-image {
     width: 40%;
+    height: 100%;
     display: inline-block;
     margin-top: 20px;
     float: left;
