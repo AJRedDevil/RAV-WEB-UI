@@ -7,11 +7,143 @@
 </div>-->
 
 <div *ngIf="dashboardStats.length != 0">
-  <table class="ui basic table">
+  <!-- Chart Stat -->
+  <!--<table class="ui celled structured table">
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Count</th>
+        <th rowspan="2">Projects</th>
+        <th rowspan="2">Total No. of Active Charts</th>
+        <th colspan="4">Number of Charts</th>
+      </tr>
+      <tr>
+        <th>Coding Complete</th>
+        <th>Saved for Later</th>
+        <th>Cannot Review</th>
+        <th>Active outstanding charts</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td *ngFor="let stat of chartStats">
+          {{ stat }}
+        </td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td *ngFor="let stat of chartTotalStats">
+          {{ stat }}
+        </td>
+      </tr>
+    </tbody>
+  </table>-->
+
+  <!-- Claims/Encounter -->
+  <!--<table class="ui basic table">
+    <thead>
+      <tr>
+        <th>Projects</th>
+        <th>Total no. of claims</th>
+        <th>#Claims Reviewed</th>
+        <th>#Claims Added</th>
+        <th>#Claims Modified</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td *ngFor="let stat of claimStats">
+          {{ stat }}
+        </td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td *ngFor="let stat of claimTotalStats">
+          {{ stat }}
+        </td>
+      </tr>
+    </tbody>
+  </table>-->
+
+  <!-- Diagnosis -->
+  <!--<table class="ui basic table">
+    <thead>
+      <tr>
+        <th>Projects</th>
+        <th>Total Dx</th>
+        <th>Dx Validated</th>
+        <th>Dx Invalidated</th>
+        <th>Dx not addressed</th>
+        <th>New Dx</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td  *ngFor="let stat of diagnosisStats">
+          {{ stat }}
+        </td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td *ngFor="let stat of diagnosisTotalStats">
+          {{ stat }}
+        </td>
+      </tr>
+    </tbody>
+  </table>-->
+
+  <!-- HCC -->
+  <!--<table class="ui basic table">
+    <thead>
+      <tr>
+        <th>Projects</th>
+        <th>Total HCC</th>
+        <th>HCC Validated</th>
+        <th>New HCC</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td  *ngFor="let stat of hccStats">
+          {{ stat }}
+        </td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td *ngFor="let stat of hccTotalStats">
+          {{ stat }}
+        </td>
+      </tr>
+    </tbody>
+  </table>-->
+
+  <!-- CPT -->
+  <!--<table class="ui basic table">
+    <thead>
+      <tr>
+        <th>Projects</th>
+        <th>Total CPT</th>
+        <th>New CPT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td  *ngFor="let stat of cptStats">
+          {{ stat }}
+        </td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td *ngFor="let stat of cptTotalStats">
+          {{ stat }}
+        </td>
+      </tr>
+    </tbody>
+  </table>-->
+
+  <table class="ui basic table">
+     <thead>
+       <tr>
+         <th>Title</th>
+          <th>Count</th>
       </tr>
     </thead>
     <tbody>
