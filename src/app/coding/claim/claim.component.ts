@@ -20,9 +20,11 @@ export class ClaimComponent implements OnInit {
     private dosForm: FormGroup;
     private claimCommentForm: FormGroup;
     private comment = "";
-    private todayDate = "";
-    private dosDate: string;
+    private todayDate: Date;
+    private dosDate: Date;
     private dosUpdated: boolean;
+    private dateChanged: boolean;
+    private yearRange: string;
     @Output("reloadClaims")loadClaims = new EventEmitter();
 
     @ViewChild(DXCodesComponent) dxcodeComponent: DXCodesComponent;
@@ -36,16 +38,17 @@ export class ClaimComponent implements OnInit {
                 comment: ['', Validators.required]
             });
             this.dosForm = fb.group({
-                dos: ['', Validators.required, DateValidators.shouldHaveDateFormat]
+                dos: ['', Validators.required]
             });
             this.dosUpdated = false;
     }
     ngOnInit() {
-        this.todayDate = DateLib.getTodayDate();
+        this.todayDate = new Date();
         this._isAccordianActive = false;
         this.comment = this.inputClaim.comment;
-        this.dosDate = this.inputClaim.dateOfService;
-        this.dosForm.patchValue({dos: DateLib.convertToyyyymmdd(this.dosDate)});
+        this.dosDate = new Date(this.inputClaim.dateOfService);
+        this.dateChanged = false;
+        // this.dosForm.patchValue({dos: DateLib.convertToyyyymmdd(this.dosDate)});
         (<any>$('.ui.checkbox')).checkbox();
         (<any>$('.ui.button')).popup({
             hoverable  : false,
@@ -59,6 +62,8 @@ export class ClaimComponent implements OnInit {
             lastResort   : 'bottom right',
             on    : 'click'
         });
+        this.yearRange = "1990:" + this.todayDate.getFullYear();
+        console.log(this.yearRange);
     }
 
     private resetChildForms() {
@@ -75,20 +80,22 @@ export class ClaimComponent implements OnInit {
     }
 
     popDosDate() {
-        this.dosForm.patchValue({dos: DateLib.convertToyyyymmdd(this.dosDate)});
+        this.dosDate = new Date(this.inputClaim.dateOfService);
+        this.dateChanged = false;
     }
 
     updateDOS() {
         var claimComponent = {
             claimId: this.inputClaim.claimId,
-            dateOfService: DateLib.convertTommddyyyy(this.dosForm.controls['dos'].value)
+            dateOfService: DateLib.convertTommddyyyy(this.dosDate)
         }
         this._claimService.updateDos(claimComponent)
             .then(res => {
                 if (res.flag) {
                     (<any>$('span#dos-date')).popup('hide');
-                    this.dosDate = DateLib.convertTommddyyyy(this.dosForm.controls['dos'].value);
+                    this.inputClaim.dateOfService = DateLib.convertTommddyyyy(this.dosDate);
                     this.dosUpdated = true;
+                    this.dateChanged = false;
                     this._toastr.success("Date of Service Updated");
                 } else {
                     this._toastr.error("Problem while updating Date Of Service");

@@ -19,7 +19,7 @@ export class ClaimsComponent implements OnInit {
     private dosFormClass = "";
     private _selectedProviderId: number;
     private _selectedProvider = "";
-    private today_date = "";
+    private today_date: Date;
     private isChartComplete: boolean;
     private codingCompleteModal: boolean;
     private saveForLaterModal: boolean;
@@ -28,6 +28,7 @@ export class ClaimsComponent implements OnInit {
     private activeLoader: boolean;
     private loaderText = "Loading";
     private loaderSize = "mini";
+    private yearRange: string;
     @Output('getNextChart') nextChart = new EventEmitter();
 
     constructor(
@@ -35,15 +36,11 @@ export class ClaimsComponent implements OnInit {
         private _fb: FormBuilder,
         private _toastr: ToastsManager) {
             this.addClaimForm = this._fb.group({
-                dateOfService: [
-                    '',
-                    Validators.required,
-                    DateValidators.shouldHaveDateFormat
-                ],
+                dateOfService: ['', Validators.required],
                 provider: ['']
             });
             this._selectedProviderId = -1;
-            this.today_date = DateLib.getTodayDate();
+            this.today_date = new Date();
             this.isChartComplete = false;
             this.codingCompleteModal = false;
             this.saveForLaterModal = false;
@@ -111,6 +108,7 @@ export class ClaimsComponent implements OnInit {
             "type": "default",
             "closeable": true
         }
+        this.yearRange = "1990:" + this.today_date.getFullYear();
     }
 
     private resetForm() {
@@ -126,49 +124,48 @@ export class ClaimsComponent implements OnInit {
     }
 
     addClaim() {
-        if (this.addClaimForm.controls['dateOfService'].value == "") {
-            this.addClaimForm.controls['dateOfService'].setErrors({
-                required: true
-            })
-        }
-        else if (this._selectedProviderId < 0 || this._selectedProvider == "" || (this._selectedProvider != this.addClaimForm.controls['provider'].value)) {
-            this.addClaimForm.controls['provider'].setErrors({
-                selectProvider: true
-            })
-        } else {
-            var claimContent = this.addClaimForm.value;
-            claimContent["reviewed"] = false;
-            claimContent["comment"] = "";
-            claimContent["chartId"] = parseInt(localStorage.getItem("chartId"));
-            claimContent["provider"] = {
-                "id": this._selectedProviderId
-            };
-            claimContent["dateOfService"] = DateLib.convertTommddyyyy(this.addClaimForm.controls['dateOfService'].value);
-            this._claimService.addClaim(claimContent)
-                .then(res => {
-                    (<any>$('.ui.button')).popup('hide');
-                    this.resetForm();
-                    this._toastr.success("Claim added succesfully!!", null);
-                    // {
-                    //     "closeButton": false,
-                    //     "debug": false,
-                    //     "newestOnTop": false,
-                    //     "progressBar": false,
-                    //     "positionClass": "toast-bottom-right",
-                    //     "preventDuplicates": false,
-                    //     "onclick": null,
-                    //     "showDuration": "300",
-                    //     "hideDuration": "1000",
-                    //     "timeOut": "5000",
-                    //     "extendedTimeOut": "1000",
-                    //     "showEasing": "swing",
-                    //     "hideEasing": "linear",
-                    //     "showMethod": "fadeIn",
-                    //     "hideMethod": "fadeOut"
-                    // });
-                    this.loadClaims();
-                });
-        }
+        // if (this.addClaimForm.controls['dateOfService'].value == "") {
+        //     this.addClaimForm.controls['dateOfService'].setErrors({
+        //         required: true
+        //     })
+        // }
+        // else if (this._selectedProviderId < 0 || this._selectedProvider == "" || (this._selectedProvider != this.addClaimForm.controls['provider'].value)) {
+        //     this.addClaimForm.controls['provider'].setErrors({
+        //         selectProvider: true
+        //     })
+        // } else {
+        var claimContent = this.addClaimForm.value;
+        claimContent["reviewed"] = false;
+        claimContent["comment"] = "";
+        claimContent["chartId"] = parseInt(localStorage.getItem("chartId"));
+        claimContent["provider"] = {
+            "id": this._selectedProviderId
+        };
+        claimContent["dateOfService"] = DateLib.convertTommddyyyy(this.addClaimForm.controls['dateOfService'].value);
+        this._claimService.addClaim(claimContent)
+            .then(res => {
+                (<any>$('.ui.button')).popup('hide');
+                this.resetForm();
+                this._toastr.success("Claim added succesfully!!", null);
+                // {
+                //     "closeButton": false,
+                //     "debug": false,
+                //     "newestOnTop": false,
+                //     "progressBar": false,
+                //     "positionClass": "toast-bottom-right",
+                //     "preventDuplicates": false,
+                //     "onclick": null,
+                //     "showDuration": "300",
+                //     "hideDuration": "1000",
+                //     "timeOut": "5000",
+                //     "extendedTimeOut": "1000",
+                //     "showEasing": "swing",
+                //     "hideEasing": "linear",
+                //     "showMethod": "fadeIn",
+                //     "hideMethod": "fadeOut"
+                // });
+                this.loadClaims();
+            });
     }
     
     private _getNextChart(reload: boolean) {

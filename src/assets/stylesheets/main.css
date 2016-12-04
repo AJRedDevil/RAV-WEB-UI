@@ -1396,7 +1396,7 @@ button.icon [class*=" icon-"] {
 }
 
 .claim-title-inner .ui.popup.bottom.right {
-    width: 200px !important;
+    width: 250px !important;
 }
 
 .ui.form .review-select select {

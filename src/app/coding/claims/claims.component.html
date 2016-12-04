@@ -19,10 +19,19 @@
                                         <form [formGroup]="addClaimForm" (ngSubmit)="addClaim()">
                                             <div class="fields">
                                                 <div
-                                                    class="field"
-                                                    [class.form-error]="!addClaimForm.controls.dateOfService.valid">
+                                                    class="field">
+                                                    <!--[class.form-error]="!addClaimForm.controls.dateOfService.valid">-->
                                                     <label>DOS</label>
-                                                    <input
+                                                    <p-calendar
+                                                        placeholder="mm/dd/yyyy"
+                                                        formControlName="dateOfService"
+                                                        dateFormat="mm/dd/yy"
+                                                        [monthNavigator]="true"
+                                                        [yearNavigator]="true"
+                                                        [yearRange]="yearRange"
+                                                        [maxDate]="today_date">
+                                                    </p-calendar>
+                                                    <!--<input
                                                         type="date"
                                                         placeholder="dd/mm/yyyy"
                                                         formControlName="dateOfService"
@@ -31,7 +40,7 @@
                                                         class="error"
                                                         *ngIf="!addClaimForm.controls.dateOfService.valid">
                                                         Required (Must be in format mm-dd-yyyy)
-                                                    </div>
+                                                    </div>-->
                                                 </div>
                                                 <div
                                                     class="field"

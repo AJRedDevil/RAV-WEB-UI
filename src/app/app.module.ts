@@ -8,6 +8,7 @@ import { L_SEMANTIC_UI_MODULE } from 'angular2-semantic-ui';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 import { DROPDOWN_DIRECTIVES } from './shared/directives/dropdown';
 import { ClickOutsideModule } from 'ng2-click-outside';
+import { CalendarModule } from 'primeng/primeng';
 
 import { MomentModule } from 'angular2-moment';
 
@@ -55,7 +56,8 @@ let toastOptions = <ToastOptions> {
         L_SEMANTIC_UI_MODULE,
         MomentModule,
         NgIdleKeepaliveModule.forRoot(),
-        ClickOutsideModule
+        ClickOutsideModule,
+        CalendarModule
     ],
     declarations: [
         AppComponent,

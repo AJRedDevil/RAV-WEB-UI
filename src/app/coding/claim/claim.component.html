@@ -34,35 +34,50 @@
                 data-pk="1"
 				class="editable editable-input"
 				(click)="popDosDate(dosDate)">
-                DOS: {{ dosDate }}
+                DOS: {{ inputClaim.dateOfService }}
             </span> |
 			<div class="ui fluid popup bottom center transition hidden">
 				<div class="ui column divided grid">
 					<div class="column">
 						<div class="ui form">
-							<form [formGroup]="dosForm" (ngSubmit)="updateDOS()">
+							<!--<form [formGroup]="dosForm" (ngSubmit)="updateDOS()">-->
 								<div class="fields">
 									<div
-										class="field"
-										[class.form-error]="!dosForm.controls.dos.valid">
-										<input
+										class="field">
+										<!--[class.form-error]="!dosForm.controls.dos.valid">-->
+										<p-calendar
+											placeholder="mm/dd/yyyy"
+											[(ngModel)]="dosDate"
+											dateFormat="mm/dd/yy"
+											[monthNavigator]="!dateChanged"
+											[yearNavigator]="!dateChanged"
+											[yearRange]="yearRange"
+											[maxDate]="todayDate"
+											(ngModelChange)="dateChanged=true">
+										</p-calendar>
+										<!--<input
 											type="date"
 											placeholder="dd/mm/yyyy"
 											[max]="todayDate"
-											formControlName="dos">
-										<div
+											formControlName="dos">-->
+										<!--<div
 											class="error"
 											*ngIf="!dosForm.controls.dos.valid">
 											Required (Must be in format mm-dd-yyyy)
-										</div>
+										</div>-->
 									</div>
 									<div class="field">
-										<button class="ui icon button" id="checked-icon" type="submit">
+										<button
+											class="ui icon button"
+											id="checked-icon"
+											type="submit"
+											(click)="updateDOS()"
+											[disabled]="!dateChanged">
 											<i class="checked calendar icon"></i>
 										</button>
 									</div>
 								</div>
-							</form>
+							<!--</form>-->
 						</div>
 					</div>
 				</div>
