@@ -29,6 +29,7 @@ export class ClaimsComponent implements OnInit {
     private loaderText = "Loading";
     private loaderSize = "mini";
     private yearRange: string;
+    private accordOption: any;
     @Output('getNextChart') nextChart = new EventEmitter();
 
     constructor(
@@ -45,10 +46,12 @@ export class ClaimsComponent implements OnInit {
             this.codingCompleteModal = false;
             this.saveForLaterModal = false;
             this.activeLoader = true;
-    }
-
-    private toggleLoader() {
-        this.activeLoader = !this.activeLoader;
+            this.accordOption = {
+                "styled": true,
+                "fluid": true,
+                "inverted": false,
+                "allowMultiple": false
+            }
     }
 
     private loadClaims(): void {
@@ -60,11 +63,11 @@ export class ClaimsComponent implements OnInit {
                     if (!element.reviewed && !activeFound) {
                         element.active = true;
                         activeFound = true;
-                        this.activeLoader = false;
                     } else {
                         element.active = false;
                     }
                 });
+                this.activeLoader = false;
             });
     }
 

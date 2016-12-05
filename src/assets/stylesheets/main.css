@@ -967,6 +967,7 @@ button.icon [class*=" icon-"] {
     box-shadow: none;
 }
 
+.fullscreen .claim-wrap .table,
 .fullscreen .cpt-wrap .table {
     width: 100%;
 }
@@ -1009,10 +1010,10 @@ button.icon [class*=" icon-"] {
 .fullscreen .claim-wrap .label, 
 .fullscreen .cpt-wrap .label {
     position: absolute;
-    background: #ea2828;
-    color: #fff;
+    color: #ea2828;
     padding: 0px 15px;
-    font-size: 12px;
+    right: 10px;
+    font-size: 14px;
 }
 
 .card-header .add-row {
@@ -1921,10 +1922,9 @@ button.icon [class*=" icon-"] {
 {
   position: absolute;
   top: 0;
-  background: #ea2828;
-  color: #fff;
+  color: #ea2828;
   padding: 3px 6px;
-  font-size: 10px;
+  font-size: 14px;
   right: 8px;
   border-radius: 4px;
   top: 50%;

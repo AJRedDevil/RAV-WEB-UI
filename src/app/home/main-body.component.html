@@ -1,0 +1,10 @@
+<main class="main-container" [class.fullscreen]="fullScreen">
+	<chart
+		class="chart-image"
+		(goFullScreen)="goFullScreen($event)">
+	</chart>
+	<coding
+		class="coding"
+		(getNextChart)="getNextChart($event)">
+	</coding>
+</main>
