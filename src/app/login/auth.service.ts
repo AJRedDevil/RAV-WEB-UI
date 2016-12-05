@@ -34,7 +34,6 @@ export class AuthService {
     localStorage.removeItem("fullScreen");
     localStorage.removeItem("token");
     this._router.navigate(['Login']);
-    window.location.reload();
   }
  
   login(user): Promise<Boolean> {
@@ -51,6 +50,8 @@ export class AuthService {
                   localStorage.setItem('username', authResponse.username);
                   localStorage.setItem("fullScreen", "");
                   localStorage.setItem("token", authResponse.token);
+                  var RAV_SERVICE_URL = process.env.RAV_SERVICE || "http://localhost:8080/ravnepal";
+                  localStorage.setItem('baseUrl', RAV_SERVICE_URL);
                   return true;
                 } else {
                   return false;

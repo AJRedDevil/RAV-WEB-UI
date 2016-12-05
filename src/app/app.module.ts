@@ -6,14 +6,14 @@ import { ToastModule, ToastOptions } from "ng2-toastr/ng2-toastr";
 import { NgSemanticModule } from 'ng-semantic';
 import { L_SEMANTIC_UI_MODULE } from 'angular2-semantic-ui';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
-import { DROPDOWN_DIRECTIVES } from './shared/directives/dropdown';
 import { ClickOutsideModule } from 'ng2-click-outside';
 import { CalendarModule } from 'primeng/primeng';
 
 import { MomentModule } from 'angular2-moment';
 
 import { AppComponent }   from './app.component';
-import { MainComponent } from './home/main.component';
+import { MainHeaderComponent } from './home/main-header.component';
+import { MainBodyComponent } from './home/main-body.component';
 import { ChartComponent } from './chart/chart.component';
 import { ClaimComponent } from './coding/claim/claim.component';
 import { ClaimsComponent } from './coding/claims/claims.component';
@@ -61,7 +61,8 @@ let toastOptions = <ToastOptions> {
     ],
     declarations: [
         AppComponent,
-        MainComponent,
+        MainHeaderComponent,
+        MainBodyComponent,
         ChartComponent,
         ClaimComponent,
         ClaimsComponent,
@@ -73,7 +74,6 @@ let toastOptions = <ToastOptions> {
         LoginComponent,
         SafePipe,
         ConvertNullToEmptyString,
-        DROPDOWN_DIRECTIVES,
         DashboardComponent
     ],
     providers: [
