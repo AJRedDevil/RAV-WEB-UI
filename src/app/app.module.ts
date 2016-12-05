@@ -24,6 +24,7 @@ import { CPTCodesComponent } from './coding/cptCode/cptcode.component';
 import { MemberInfoComponent } from './coding/memberInfo/member-info.component';
 import { CommentCannotReviewComponent } from './coding/cannotReview/comment-cannot-review.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RavDropdown, RavAccordion, RavCheckbox } from './shared/directives';
 
 import { LoginComponent } from './login/login.component'
 
@@ -74,7 +75,10 @@ let toastOptions = <ToastOptions> {
         LoginComponent,
         SafePipe,
         ConvertNullToEmptyString,
-        DashboardComponent
+        DashboardComponent,
+        RavDropdown,
+        RavAccordion,
+        RavCheckbox
     ],
     providers: [
         AuthService,

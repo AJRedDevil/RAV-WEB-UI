@@ -7,8 +7,8 @@ import {
     ElementRef
 } from '@angular/core';
 
-import { DropdownMenuDirective } from './dropdown-menu';
-import { DropdownService } from './dropdown-service';
+import { DropdownMenuDirective } from './_dropdown-menu';
+import { DropdownService } from './_dropdown-service';
 
 @Directive({
   selector: '[ravDropdown]',

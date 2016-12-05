@@ -20,7 +20,6 @@ export class DashboardComponent implements OnInit {
     constructor(
         private dashboardService: DashboardService,
         public _toastr: ToastsManager,) {
-        (<any>$('.maindropdown')).dropdown();
     }
 
     ngOnInit() {

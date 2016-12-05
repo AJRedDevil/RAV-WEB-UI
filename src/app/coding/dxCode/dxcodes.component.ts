@@ -1,10 +1,9 @@
-import { Component, Input, OnInit, ViewChildren } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 import { DXCode, Reasons } from "./dxcode.model";
 import { DxCodeService } from './dxcode.service';
-import { DropdownDirective } from '../../shared/directives/dropdown';
 
 class DxCodeCss {
   reasonClass = "";
@@ -37,7 +36,6 @@ export class DXCodesComponent implements OnInit {
   private _selectedDxCodeDesc = "";
   private dxcodeCss: Array<DxCodeCss> = [];
   private reasons: Reasons[];
-  @ViewChildren(DropdownDirective) allDxDropdown;
 
   constructor(
     private _dxcodeService: DxCodeService,
@@ -234,12 +232,6 @@ export class DXCodesComponent implements OnInit {
             this._toastr.error("Error while registering invalid DxCode.");
           }
         });
-  }
-  
-  onClickedOutside(e: Event) {
-    this.allDxDropdown.forEach(element => {
-      element.registerClick = e;
-    });
   }
 
   private makeItValid(event, dxcode: DXCode) {

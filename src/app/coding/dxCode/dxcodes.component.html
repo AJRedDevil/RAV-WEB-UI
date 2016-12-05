@@ -46,17 +46,14 @@
                     class="icon show-message">
                     <div
                         class="ui floating labeled dropdown"
-                        [class.is-selected]="dxcode.reasonId!=0"
-                        (clickOutside)="onClickedOutside($event)"
-                        #dxdropdown=ravDropdown
-                        ravDropdown>
+                        [class.is-selected]="dxcode.reasonId!=0">
                         <i
                             class="fa activateDropdown"
                             aria-hidden="true"
                             [class.fa-square-o]="dxcode.reasonId == 0"
                             [class.fa-check-square]="dxcode.reasonId != 0">
                             </i>
-                        <div class="menu transition" ng-style="{'display': 'block !important';}" ravDropdownMenu>
+                        <div class="menu">
                             <div
                                 class="item"
                                 *ngIf="dxcode.reasonId != 0"

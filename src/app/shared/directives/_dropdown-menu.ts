@@ -1,6 +1,6 @@
 import { Directive, HostBinding } from '@angular/core';
 
-import { DropdownService } from './dropdown-service';
+import { DropdownService } from './_dropdown-service';
 
 @Directive({
   selector: '[ravDropdownMenu]'

@@ -49,7 +49,6 @@ export class ClaimComponent implements OnInit {
         this.dosDate = new Date(this.inputClaim.dateOfService);
         this.dateChanged = false;
         // this.dosForm.patchValue({dos: DateLib.convertToyyyymmdd(this.dosDate)});
-        (<any>$('.ui.checkbox')).checkbox();
         (<any>$('.ui.button')).popup({
             hoverable  : false,
             position   : 'bottom right',
@@ -63,7 +62,6 @@ export class ClaimComponent implements OnInit {
             on    : 'click'
         });
         this.yearRange = "1990:" + this.todayDate.getFullYear();
-        console.log(this.yearRange);
     }
 
     private resetChildForms() {
