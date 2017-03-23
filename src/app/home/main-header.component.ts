@@ -1,4 +1,4 @@
-import { Component, HostListener ,OnInit, ViewChild, ViewContainerRef } from "@angular/core";
+import { Component ,OnInit, ViewChild, ViewContainerRef } from "@angular/core";
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { Idle, DEFAULT_INTERRUPTSOURCES } from '@ng-idle/core';
 
@@ -29,12 +29,12 @@ export class MainHeaderComponent implements OnInit {
     }
 
     ngOnInit() {
-        // this.authService.sessionTimeout()
-        //     .then(res => {
-        //         if (!res) {
-        //             this.authService.logout();
-        //         }
-        //     });
+        this.authService.sessionTimeout()
+            .then(res => {
+                if (!res) {
+                    this.authService.logout();
+                }
+            });
     }
 
     reset() {
@@ -42,17 +42,7 @@ export class MainHeaderComponent implements OnInit {
     }
 
     logout() {
-        // this.closeChartWindow();
         this.authService.logout();
     }
-
-    // @HostListener('window:beforeunload', [ '$event' ])
-    // onBeforeUnloadHandler(event) {
-    //     this.closeChartWindow();
-    // }
-
-    // @HostListener('window:unload', [ '$event' ])
-    // onUnloadHandler(event) {
-    // }
 
 }
