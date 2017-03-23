@@ -11,7 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/Home',
+    redirectTo: 'Home',
     pathMatch: 'full'
   },
   {
