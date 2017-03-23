@@ -28,6 +28,7 @@ export class CPTCodesComponent{
   private _selectedCptxId = -1;
   // private _selectedModifierId = -1;
   private cptcodeCss: Array<CptCodeCss> = [];
+  private allowToAdd: boolean;
 
   constructor(
     private _cptcodeService: CptCodeService,
@@ -39,7 +40,8 @@ export class CPTCodesComponent{
         modifiers: ['', Validators.required],
         comment: ['']
       });
-    }
+    this.allowToAdd = false;
+  }
 
   private loadCptCodes() {
     if (this.claimId == null) {
@@ -95,6 +97,7 @@ export class CPTCodesComponent{
             this._toastr.error("There was a problem adding CptCode.");
             this.addCptCodeForm.reset();
           }
+          this.allowToAdd = false;
         });
   }
 
@@ -125,6 +128,15 @@ export class CPTCodesComponent{
     this._sendComment(event, cptcode, index);
   }
 
+  private checkForDuplicate(_cptCode): boolean {
+    for (let element of this.cptcodes) {
+      if (element.cptCode.cptCode == _cptCode) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   searchCptCodeDesc(event) {
     var self = this;
     event.stopPropagation();
@@ -150,8 +162,16 @@ export class CPTCodesComponent{
                     description: 'cptDesc'
                 },
                 onSelect: function(result, response) {
-                  self.addCptCodeForm.patchValue({cptcode: result.cptCombined});
-                  self._selectedCptxId = result.id;
+                  if (self.checkForDuplicate(result.cptCode)) {
+                    self._toastr.error("Duplicate CptCode selected.");
+                    self.addCptCodeForm.patchValue({cptcode: ""});
+                    self.addCptCodeForm.patchValue({comment: ""});
+                    self.allowToAdd = false;
+                  } else {
+                    self.addCptCodeForm.patchValue({cptcode: result.cptCombined});
+                    self._selectedCptxId = result.id;
+                    self.allowToAdd = true;
+                  }
                   return false
                 },
                 minCharacters : 2

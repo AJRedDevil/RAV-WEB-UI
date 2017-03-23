@@ -1,6 +1,6 @@
 export class CPTCode {
   id?: string;
-  cptcode: {
+  cptCode: {
   		id: string;
   		cptCode: string;
   		cptDesc: string;

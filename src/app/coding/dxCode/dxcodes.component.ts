@@ -36,6 +36,7 @@ export class DXCodesComponent implements OnInit {
   private _selectedDxCodeDesc = "";
   private dxcodeCss: Array<DxCodeCss> = [];
   private reasons: Reasons[];
+  private allowToAdd: boolean;
 
   constructor(
     private _dxcodeService: DxCodeService,
@@ -45,6 +46,7 @@ export class DXCodesComponent implements OnInit {
         dxcode: ['', Validators.required],
         comment: ['']
       });
+    this.allowToAdd = false;
   }
 
   private loadreasons() {
@@ -136,6 +138,7 @@ export class DXCodesComponent implements OnInit {
               this._toastr.error("There was a problem adding DxCode");
               this.addDxCodeForm.reset();
             }
+            this.allowToAdd = false;
           });
       }
     }
@@ -181,6 +184,15 @@ export class DXCodesComponent implements OnInit {
     this._sendComment(event, dxcode, index);
   }
 
+  private checkForDuplicate(_dxCode): boolean {
+    for (let element of this.dxcodes) {
+      if (element.dxCode.dxCode == _dxCode) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   searchDxCodeDesc(event) {
     var self = this;
     event.stopPropagation();
@@ -206,11 +218,19 @@ export class DXCodesComponent implements OnInit {
                     description: 'dxDesc'
                 },
                 onSelect: function(result, response) {
-                  self.addDxCodeForm.patchValue({dxcode: result.dxCombined});
-                  self._selectedDxId = result.id;
-                  self._selectedDxCode = result.dxCode;
-                  self._selectedDxDesc = result.dxDesc;
-                  self._selectedDxCodeDesc = result.dxCombined;
+                  if (self.checkForDuplicate(result.dxCode)) {
+                    self._toastr.error("Duplicate DxCode selected.");
+                    self.addDxCodeForm.patchValue({dxcode: ""});
+                    self.addDxCodeForm.patchValue({comment: ""});
+                    self.allowToAdd = false;
+                  } else {
+                    self.addDxCodeForm.patchValue({dxcode: result.dxCombined});
+                    self._selectedDxId = result.id;
+                    self._selectedDxCode = result.dxCode;
+                    self._selectedDxDesc = result.dxDesc;
+                    self._selectedDxCodeDesc = result.dxCombined;
+                    self.allowToAdd = true;
+                  }
                   return false;
                 },
                 minCharacters : 2

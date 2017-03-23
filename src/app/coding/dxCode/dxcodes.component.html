@@ -149,10 +149,16 @@
                     <input
                         type="text"
                         placeholder="Enter comment"
-                        formControlName="comment">
+                        formControlName="comment"
+                        [readonly]="!allowToAdd">
                 </div>
                 <div class="field">
-                    <button class="ui green button" type="submit">Add</button>
+                    <button
+                        class="ui green button"
+                        type="submit"
+                        [disabled]="!allowToAdd">
+                        Add
+                    </button>
                 </div>
             </div>
         </form>
