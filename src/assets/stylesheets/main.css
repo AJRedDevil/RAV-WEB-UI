@@ -1935,3 +1935,7 @@ button.icon [class*=" icon-"] {
 input:focus,a:focus,button:focus,.dropdown:focus{
     box-shadow: 0 0 10px 2px #00a7e6 !important;
 } 
+
+.ui.search>.provider_search{
+    width: 22em;
+}

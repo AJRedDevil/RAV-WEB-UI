@@ -92,7 +92,8 @@ export class ClaimsComponent implements OnInit {
                 },
                 fields: {
                     results : 'providerList',
-                    title   : 'fullName'
+                    title   : 'combined',
+                    description: 'description'
                 },
                 onSelect: function(result, response) {
                     self.addClaimForm.patchValue({provider: result.fullName});
