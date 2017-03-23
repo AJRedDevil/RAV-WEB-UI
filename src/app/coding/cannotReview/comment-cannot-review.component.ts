@@ -88,7 +88,12 @@ export class CommentCannotReviewComponent implements OnInit {
         this.loadCommentCannotReview();
     }
 
+    resetComment() {
+        this.chartComment = "";
+    }
+
     nextChart($event) {
+        this.resetComment();
         this.reloadCannotReview();
     }
 }
