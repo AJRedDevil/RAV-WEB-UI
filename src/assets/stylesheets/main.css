@@ -1013,7 +1013,7 @@ button.icon [class*=" icon-"] {
     color: #ea2828;
     padding: 0px 15px;
     right: 10px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .card-header .add-row {
@@ -1462,7 +1462,7 @@ button.icon [class*=" icon-"] {
 }
 
 .standard-message .ui.form .fields input,
-.standard-message .ui.form .fields button
+.standard-message .ui.form .fields .field button
 {
     height: 100%;
     font-size: 14px;
@@ -1481,6 +1481,7 @@ button.icon [class*=" icon-"] {
     margin-left: 10px;
     background-size: 36px;
     width: 36px;
+    height: 100%
 }
 
 .standard-message .ui.form .fields .field small{
@@ -1924,7 +1925,7 @@ button.icon [class*=" icon-"] {
   top: 0;
   color: #ea2828;
   padding: 3px 6px;
-  font-size: 14px;
+  font-size: 12px;
   right: 8px;
   border-radius: 4px;
   top: 50%;
