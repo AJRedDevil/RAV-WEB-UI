@@ -91,7 +91,10 @@
     </div>
     <div class="completion-section clearfix">
         <div>
-            <button class="btn btn-success" (click)="showCodingCompeleteModal()">
+            <button
+                class="btn btn-success"
+                (click)="showCodingCompeleteModal()"
+                [disabled]="nextActive">
               <span class="icon-checkmark"></span>Coding complete
             </button>
             <lsu-modal [(ngModel)]="codingCompleteModal" [options]="modalOptions">
@@ -110,7 +113,10 @@
                     </div>
                 </div>
             </lsu-modal>
-            <button class="btn btn-warn" (click)="showSaveForLaterModal()">
+            <button
+                class="btn btn-warn"
+                (click)="showSaveForLaterModal()"
+                [disabled]="nextActive">
               <span class="icon-later"></span>Save for later
             </button>
             <lsu-modal [(ngModel)]="saveForLaterModal" [options]="modalOptions">
@@ -133,7 +139,8 @@
         <div>
             <button
                 class="btn btn-info"
-                (click)="activeModal()">
+                (click)="activeModal()"
+                [disabled]="nextActive">
                 Next
                 <span class="icon-next"></span>
             </button>

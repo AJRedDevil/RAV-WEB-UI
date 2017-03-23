@@ -29,7 +29,7 @@ export class ClaimsComponent implements OnInit {
     private loaderText = "Loading";
     private loaderSize = "mini";
     private yearRange: string;
-    private accordOption: any;
+    private nextActive: boolean;
     @Output('getNextChart') nextChart = new EventEmitter();
 
     constructor(
@@ -46,12 +46,7 @@ export class ClaimsComponent implements OnInit {
             this.codingCompleteModal = false;
             this.saveForLaterModal = false;
             this.activeLoader = true;
-            this.accordOption = {
-                "styled": true,
-                "fluid": true,
-                "inverted": false,
-                "allowMultiple": false
-            }
+            this.nextActive = false;
     }
 
     private loadClaims(): void {
@@ -172,10 +167,12 @@ export class ClaimsComponent implements OnInit {
     }
     
     private _getNextChart(reload: boolean) {
+        this.nextActive = true;
         this._claimService.goToNextChart()
             .then(res => {
                 if (res.flag) {
                     this.isChartComplete = false;
+                    this.nextActive = false;
                     if (reload) {
                         this.nextChart.emit({ "nextChart": false });
                     }
