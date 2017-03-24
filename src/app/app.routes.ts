@@ -11,7 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'Home',
+    redirectTo: 'Default',
     pathMatch: 'full'
   },
   {
@@ -19,7 +19,7 @@ const appRoutes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'Home',
+    path: 'Default',
     component: MainHeaderComponent,
     canActivate: [AuthGuard],
     children: [
