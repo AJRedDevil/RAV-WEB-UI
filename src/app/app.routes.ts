@@ -23,7 +23,7 @@ const appRoutes: Routes = [
     component: MainHeaderComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '', redirectTo: 'Main' ,component: MainBodyComponent},
+      { path: '', redirectTo: 'Main' , pathMatch: 'full'},
       { path: 'Main', component: MainBodyComponent},
       { path: 'Dashboard', component: DashboardComponent}
     ]

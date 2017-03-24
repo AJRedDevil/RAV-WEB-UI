@@ -17,14 +17,14 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         if (this._service.loggedIn()) {
-            this._router.navigate(['Home']);
+            this._router.navigate(['Default']);
         }
     }
     login() {
         this._service.login(this.user)
             .then(res => {
                 if (res){
-                    this._router.navigate(['Home'])
+                    this._router.navigate(['Default'])
                 } else{
                     this.errorMsg = 'Failed to login';
                 }
